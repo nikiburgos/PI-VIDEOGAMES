@@ -2,6 +2,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import { BrowserRouter, Router, Switch} from 'react-router-dom';
 import Landing from './components/LANDING/Landing';
+import Home from './components/HOME/Home';
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
       <h1>VIDEOGAMES PI</h1>
         <Switch>
           <Route exact path="/" component={Landing} />
-          {/* Agrega aquí las demás rutas de tu aplicación */}
+          <Route path = "/home" component = {Home} />
+
+          
         </Switch>
       </div>
     </BrowserRouter>

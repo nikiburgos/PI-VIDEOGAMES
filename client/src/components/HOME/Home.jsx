@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSate, useEffect } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux'; 
-import { getAllVideogames } from '../../redux/actions/action-types';
+import { getVideogames } from '../../redux/actions/actions';
 import { Link } from 'react-router-dom'
+import Card from '../CARD/Card';
 
 export default function Home()  {
 
@@ -10,12 +11,12 @@ export default function Home()  {
     const allVideogames = useSelector((state) => state.videogames)  //es como el mapStatetoProps
 
     useEffect(() => {   //aca armamos el dispatch 
-        dispatch(getAllVideogames());
+        dispatch(getVideogames());
     },[])
 
     function handleClick(event){
         event.preventDefault(); //ponerlo para que no se nos recargue la página por el useEffect! 
-        dispatch(getAllVideogames());
+        dispatch(getVideogames());
     }
     
     
@@ -27,15 +28,15 @@ export default function Home()  {
             <h1>VIDEOGAMES INDIVIDUAL PROJECT</h1>
             <button onClick={event => {handleClick(event)}}>All Videogames</button>
 
-            {/* FILTROS Y ORDENAMIENTO  */}
-            
+            {/* FILTROS Y ORDENAMIENTO  */}            
             <div>  
                 <select>    {/* ordenar ascendente/descendente  */}
-                    <option value='asc'>Ascendente</option>
-                    <option value='desc'>Descendente</option>
+                    <option value='asc'>A-Z</option>
+                    <option value='desc'>Z-A</option>
                 </select>
 
                 <select> {/* filtrar por género  */}
+                    <option value='allgenres'>All Genres</option>
                     <option value='action'>Action</option>
                     <option value='indie'>Indie</option>
                     <option value='adventure'>Adventure</option>
@@ -59,13 +60,22 @@ export default function Home()  {
                 </select>
 
                 <select> {/* filtrar por origen: api o bbd  */}
-                    <option value='all'>All</option>
+                    <option value='all'>All Origins</option>
                     <option value='database'>Data Base</option>
                     <option value='Api'>Api</option>
                 </select>
-
-
+            
             </div>
+
+        
+         {/* RENDERIZADO DE LA CARD  */} { 
+            allVideogames && allVideogames.map ((element) => {
+                
+                <Card name={element.name} image = {element.image} genres= {element.genres} />
+            })
+        }
+        
+        
 
         </div>
     )
