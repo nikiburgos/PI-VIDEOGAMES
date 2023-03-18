@@ -81,13 +81,6 @@ const getAllVideogames = async function() {
 
 
 
-
-
-
-
-
-
-
 //Para traer los 15 primeros videojuegos que coincidan con el nombre pasado -----------------------
 
 const getApiInfoByName = async function(name) {
