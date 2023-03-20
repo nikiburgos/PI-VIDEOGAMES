@@ -55,7 +55,7 @@ export default function Home()  {
 
     return (
         <div>
-            <Link to='/videogames'>Add Videogame</Link> 
+            <Link to='/videogame'>Add Videogame</Link> 
 
             {/* TITULO DE LA PAGINA */}
             <h1>VIDEOGAMES INDIVIDUAL PROJECT</h1>
