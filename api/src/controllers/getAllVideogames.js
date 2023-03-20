@@ -11,7 +11,7 @@ const getApiInfo = async function() {
 
     let gamesData = [];
 
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 7; i++) {
         gamesData.push(axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${i}`));
     }
 
