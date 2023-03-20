@@ -1,6 +1,5 @@
-import { Route } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter, Router, Switch} from 'react-router-dom';
+import { BrowserRouter, Route} from 'react-router-dom';
 import Landing from './components/LANDING/Landing';
 import Home from './components/HOME/Home';
 import CreateVideogame from './components/CREATEVIDEOGAME/CreateVideogame';
@@ -10,14 +9,14 @@ function App() {
     <BrowserRouter>
       <div className="App">
       <h1>VIDEOGAMES PI</h1>
-        <Switch>
+        {/* <Switch> */}
           <Route exact path="/" component={Landing} />
           <Route path = "/home" component = {Home} />
 
           <Route path="/videogame" component={CreateVideogame} />
 
           
-        </Switch>
+        {/* </Switch> */}
       </div>
     </BrowserRouter>
   );
