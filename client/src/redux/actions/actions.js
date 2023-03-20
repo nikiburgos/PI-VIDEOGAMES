@@ -1,5 +1,5 @@
 import axios from 'axios'; 
-import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN } from '../actions/action-types'
+import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME } from '../actions/action-types'
 
 
 
@@ -31,3 +31,9 @@ export const filteredByOrigin = (payload) => { //ACTION QUE TRAE VIDEOGAMES SEGU
     }
 }
 
+export const orderByName = (payload) => { //ACTION QUE ORDENA VIDEOGAMES POR NOMBRE
+    return{
+        type: ORDER_BY_NAME,
+        payload
+    }
+}

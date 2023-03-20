@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux'; 
-import { getVideogames, filteredVideogamesByGenres, filteredByOrigin} from '../../redux/actions/actions';
+import { getVideogames, filteredVideogamesByGenres, filteredByOrigin, orderByName} from '../../redux/actions/actions';
 import { Link } from 'react-router-dom'
 import Card from '../CARD/Card';
 import Paginado from '../PAGINADO/Paginado';
@@ -25,11 +25,11 @@ export default function Home()  {
         setCurrentPage(pageNumber)
     }
 
-    useEffect(() => {   //aca armamos el dispatch 
+    useEffect(() => {   //aca armamos el dispatch de todos los videogames
         dispatch(getVideogames());
     },[])
 
-    function handleClick(event){ //Handle Click que me muestra ALL VIDEOGAMES
+    function handleClick(event){ //Handle que me muestra ALL VIDEOGAMES
         event.preventDefault(); //ponerlo para que no se nos recargue la página por el useEffect! 
         dispatch(getVideogames());
     }
@@ -42,6 +42,16 @@ export default function Home()  {
         dispatch(filteredByOrigin(event.target.value))
     }
 
+
+ const [orden, setOrden] = useState('')
+    function handleSortByName(event){  //Handle del ordenamiento Asc y Desc
+        event.preventDefault();
+        dispatch(orderByName(event.target.value))
+        setCurrentPage(1); //necesito setear la página en la primera
+        setOrden(`Order ${event.target.value}`) 
+        //esto lo necesito para poder hacer el ordenamiento, un estado que setee mi cambio. Mi estado local arranca vacío y cuando lo cambio lo seteo de esta forma. 
+    }
+
     return (
         <div>
             <Link to='/videogames'>Add Videogame</Link> 
@@ -52,7 +62,7 @@ export default function Home()  {
 
             {/* FILTROS Y ORDENAMIENTO  */}            
             <div>  
-                <select> {/* ordenar ascendente/descendente  */}
+                <select onChange={event => handleSortByName(event)}> {/* ordenar ascendente/descendente  */}                  
                     <option value='asc'>A-Z</option>
                     <option value='desc'>Z-A</option>
                 </select>
