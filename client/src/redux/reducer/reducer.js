@@ -1,4 +1,4 @@
-import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME } from '../actions/action-types'
+import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME, GET_VIDEOGAME_BY_NAME } from '../actions/action-types'
 
 const initialState = {
     videogames: [],
@@ -55,7 +55,14 @@ function rootReducer(state = initialState, action) {
         return {
             ...state,
             videogames: sortedVideogames
-        }
+            }
+
+        case GET_VIDEOGAME_BY_NAME: 
+        return{
+            ...state,
+            videogames: action.payload
+            }
+
 
         default:
             return {...state}

@@ -1,5 +1,6 @@
 import axios from 'axios'; 
-import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME } from '../actions/action-types'
+
+import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME, GET_VIDEOGAME_BY_NAME } from '../actions/action-types'
 
 
 
@@ -35,5 +36,19 @@ export const orderByName = (payload) => { //ACTION QUE ORDENA VIDEOGAMES POR NOM
     return{
         type: ORDER_BY_NAME,
         payload
+    }
+}
+
+export const getVideogameByName = (name) => { //ACTION QUE TRAE EL VIDEOGAME BUSCADO POR NOMBRE
+    return async function (dispatch){
+        try {
+            let json = await axios.get(`http://localhost:3001/videogames?name=${name}`)
+            return dispatch({
+                type: GET_VIDEOGAME_BY_NAME,
+                payload: json.data
+            })
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

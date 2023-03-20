@@ -5,6 +5,8 @@ import { getVideogames, filteredVideogamesByGenres, filteredByOrigin, orderByNam
 import { Link } from 'react-router-dom'
 import Card from '../CARD/Card';
 import Paginado from '../PAGINADO/Paginado';
+import SearchBar from '../SEARCHBAR/Searchbar';
+
 
 export default function Home()  {
 
@@ -41,7 +43,6 @@ export default function Home()  {
     function handleFilteredByOrigin(event){ //Handle del filtrado by ORIGIN
         dispatch(filteredByOrigin(event.target.value))
     }
-
 
  const [orden, setOrden] = useState('')
     function handleSortByName(event){  //Handle del ordenamiento Asc y Desc
@@ -105,6 +106,9 @@ export default function Home()  {
 
 
             </div>
+
+                {/* RENDERIZACION SEARCH BAR */}
+                <SearchBar   />
         
          {/* RENDERIZADO DE LA CARD  */} { 
             currentVideogames?.map ((element) => {
