@@ -41,3 +41,69 @@ export default function Detail(){
         </div>
     )
 }
+
+
+
+// //COMO COMPONENTE DE CLASE: 
+
+// import React from "react";
+// import { Link, } from "react-router-dom";
+// import { connect } from "react-redux";
+// import { getDetail } from "../../redux/actions/actions";
+
+// class Detail extends React.Component {
+//     constructor(props) {
+//         super(props);
+
+//         this.state = {
+//             detailVideogame: null,
+//         };
+//     }
+
+//     componentDidMount() {
+//         const { id } = this.props.match.params;
+//         this.props.dispatch(getDetail(id));
+//     }
+
+//     componentDidUpdate(prevProps) {
+//         const { id } = this.props.match.params;
+//         if (prevProps.match.params.id !== id) {
+//             this.props.dispatch(getDetail(id));
+//         }
+//     }
+
+//     render() {
+//         const { detailVideogame } = this.props;
+
+//         return (
+//             <div>
+//                 {detailVideogame ? (
+//                     <div>
+//                         <h1>{detailVideogame.name}</h1>
+//                         <img
+//                             src={detailVideogame.image}
+//                             alt={detailVideogame.name}
+//                         />
+//                         <h3>Rating: {detailVideogame.rating}</h3>
+//                         <h3>Platforms: {detailVideogame.platforms}</h3>
+//                         <h3>Genres: {detailVideogame.genres}</h3>
+//                         <h2>Released Date: {detailVideogame.released}</h2>
+//                     </div>
+//                 ) : (
+//                     <p>Loading...</p>
+//                 )}
+
+//                 <Link to="/home">
+//                     <button>HOME</button>
+//                 </Link>
+//             </div>
+//         );
+//     }
+// }
+
+// const mapStateToProps = (state) => ({
+//     detailVideogame: state.detail,
+// });
+
+// export default connect(mapStateToProps)(Detail);
+
