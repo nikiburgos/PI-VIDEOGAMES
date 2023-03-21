@@ -1,6 +1,6 @@
 import axios from 'axios'; 
 
-import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME, GET_VIDEOGAME_BY_NAME, GET_GENRES } from '../actions/action-types'
+import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME, GET_VIDEOGAME_BY_NAME, GET_GENRES, GET_DETAIL } from '../actions/action-types'
 
 
 
@@ -71,12 +71,16 @@ export const postVideogame = (payload) => { //ACTION QUE CREA UN VIDEOGAME :)
     }
 }
 
-
-// export function postVideogame(payload) {
-//     return function() {
-//         axios.post("/videogames", payload)
-//             .then(response => {
-//                 return response
-//             })
-//     }
-// }
+export const getDetail = (payload) => { //ACTION QUE TRAE EL DETAIL POR ID
+    return async function (dispatch){
+        try {
+            let json = await axios.get(`http://localhost:3001/videogames/${payload}`)
+            return dispatch({
+               type: GET_DETAIL,
+               payload: json.data
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}

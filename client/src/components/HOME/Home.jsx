@@ -113,7 +113,7 @@ export default function Home()  {
          {/* RENDERIZADO DE LA CARD  */} { 
             currentVideogames?.map ((element) => {
                 return (
-                    <Card name={element.name} image = {element.image} genres= {element.genres} key ={element.id}/>
+                    <Card name={element.name} image = {element.image} genres= {element.genres} key ={element.id} id = {element.id}/>
                 )
                
             })

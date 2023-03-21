@@ -1,4 +1,4 @@
-import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME, GET_VIDEOGAME_BY_NAME, POST_VIDEOGAME, GET_GENRES } from '../actions/action-types'
+import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME, GET_VIDEOGAME_BY_NAME, POST_VIDEOGAME, GET_GENRES, GET_DETAIL } from '../actions/action-types'
 
 const initialState = {
     videogames: [],
@@ -72,6 +72,12 @@ function rootReducer(state = initialState, action) {
         case POST_VIDEOGAME: //es necesario si no hace nada?? o es como el caso default? Averiguar! 
         return {
             ...state
+            }
+
+        case GET_DETAIL:
+            return {
+                ...state,
+                detail: action.payload
             }
 
         default:

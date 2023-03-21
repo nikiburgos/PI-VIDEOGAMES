@@ -5,4 +5,6 @@ export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const GET_VIDEOGAME_BY_NAME = 'GET_VIDEOGAME_BY_NAME'; 
 export const GET_GENRES = 'GET_GENRES';
 export const POST_VIDEOGAME = 'POST_VIDEOGAME'; 
+export const GET_DETAIL = 'GET_DETAIL';
+
 
