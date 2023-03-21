@@ -32,7 +32,9 @@ const getApiInfo = async function() {
                         name: v.name,
                         image: v.background_image,
                         rating: v.rating.toFixed(2),
-                        genres: v.genres?.map(g => g.name)
+                        genres: v.genres?.map(g => g.name),
+                        platforms: v.platforms?.map(p=>p.platform.name),
+                        released: v.released
                     })
                 })
             })
