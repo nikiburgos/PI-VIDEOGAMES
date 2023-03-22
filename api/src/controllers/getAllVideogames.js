@@ -1,6 +1,7 @@
 const { Videogame, Genre } = require('../db.js');
 const { Op } = require('sequelize');
 const axios = require ('axios');
+
 const { API_KEY } = process.env
 
 
@@ -64,11 +65,10 @@ const getDbInfo = async function() {
 
     return dbInfoModif.map(videogame => {
         videogame.genres = videogame.genres.map(g => g.name);
+        videogame.id = videogame.id
         return videogame;
-    })
+})
 }
-
-
 
 // --------------------- Para traer todos los videojuegos (TANTO DE API COMO DE BD) ----------------------------------
 
@@ -143,11 +143,13 @@ const getAllVideogamesByName = async function(name) {
 }
 
 
+
 module.exports = { 
     getAllVideogames,
     getApiInfo,
     getDbInfo,
     getAllVideogamesByName,
     getApiInfoByName,
-    getDbInfoByName
+    getDbInfoByName,
+
 }

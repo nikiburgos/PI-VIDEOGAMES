@@ -1,4 +1,4 @@
-import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME, GET_VIDEOGAME_BY_NAME, POST_VIDEOGAME, GET_GENRES, GET_DETAIL } from '../actions/action-types'
+import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME, GET_VIDEOGAME_BY_NAME, POST_VIDEOGAME, GET_GENRES, GET_DETAIL, ORDER_BY_RATING } from '../actions/action-types'
 
 const initialState = {
     videogames: [],
@@ -33,28 +33,25 @@ function rootReducer(state = initialState, action) {
             }
             
         case ORDER_BY_NAME: 
-        let sortedVideogames = action.payload === 'asc' ? 
-        state.videogames.sort(function (a, b) {
-            if (a.name > b.name) {
-                return 1;
-            }
-            if (b.name > a.name){
-                return -1
-            }
-            return 0;
-        }) : 
-        state.videogames.sort (function (a,b){
-            if (a.name > b.name) {
-                return -1
-            }
-            if (b.name > a.name){
-                return 1
-            }
-            return 0;
+        let orderAZ = state.videogames.slice().sort((a,b) =>{
+            if (a.name > b.name) return 1;
+            if (b.name > a.name) return -1;
+            return 0
         })
-        return {
+        return{
             ...state,
-            videogames: sortedVideogames
+            videogames: action.payload === 'asc' ? orderAZ : orderAZ.reverse()
+        }
+
+        case ORDER_BY_RATING:
+            let orderAsc = state.videogames.slice().sort((a,b) =>{
+                if (Number(a.rating) > Number(b.rating)) return 1;
+                if (Number(b.rating) > Number(a.rating)) return -1;
+                return 0
+            })
+            return{
+                ...state,
+                videogames: action.payload === 'asc' ? orderAsc : orderAsc.reverse()
             }
 
         case GET_VIDEOGAME_BY_NAME: 

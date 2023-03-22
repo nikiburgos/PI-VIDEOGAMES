@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux'; 
-import { getVideogames, filteredVideogamesByGenres, filteredByOrigin, orderByName} from '../../redux/actions/actions';
+import { getVideogames, filteredVideogamesByGenres, filteredByOrigin, orderByName, orderByRating} from '../../redux/actions/actions';
 import { Link } from 'react-router-dom'
 import Card from '../CARD/Card';
 import Paginado from '../PAGINADO/Paginado';
@@ -53,6 +53,16 @@ export default function Home()  {
         //esto lo necesito para poder hacer el ordenamiento, un estado que setee mi cambio. Mi estado local arranca vacío y cuando lo cambio lo seteo de esta forma. 
     }
 
+    const [ratingchange, setRatingchange] = useState('');
+    function handlerByRating(e) { 
+        dispatch(orderByRating(e.target.value));
+        setCurrentPage(1);   
+                          
+        setRatingchange(e.target.value); 
+        setOrden("Order" + e.target.value); 
+    }
+
+
     return (
         <div>
             <Link to='/videogame'>Add Videogame</Link> 
@@ -63,7 +73,8 @@ export default function Home()  {
 
             {/* FILTROS Y ORDENAMIENTO  */}            
             <div>  
-                <select onChange={event => handleSortByName(event)}> {/* ordenar ascendente/descendente  */}                  
+                <select onChange={event => handleSortByName(event)}> {/* ordenar ascendente/descendente  */} 
+                    <option value=''>--Order by Name--</option>                 
                     <option value='asc'>A-Z</option>
                     <option value='desc'>Z-A</option>
                 </select>
@@ -96,6 +107,14 @@ export default function Home()  {
                     <option value='database'>Created by you</option>
                     <option value='Api'>Our DataBase</option>
                 </select>  
+
+                <select onChange={event => handlerByRating(event)}>  {/* filtrar por rating */}
+                    <option value=''>--Order by Rating--</option>
+                    <option value='asc'>Ascending</option>
+                    <option value='desc'>Descending</option>
+
+
+                </select>
 
                 {/* RENDERIZACION PAGINADO */}
                 <Paginado 
