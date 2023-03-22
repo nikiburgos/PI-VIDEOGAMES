@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-      <h1>VIDEOGAMES PI</h1>
+      {/* <h1>VIDEOGAMES PI</h1> */}
         
           <Route exact path="/" component={Landing} />
           <Route path = "/home" component = {Home} />
