@@ -30,7 +30,7 @@ function validation (input){
 export default function CreateVideogame(){
     const dispatch = useDispatch();
     const genres = useSelector((state) => state.genres)
-    const history = useHistory();
+    const history = useHistory(); //probar mejor con USE NAVIGATE!!!
 
 
     const platformsApi = [
