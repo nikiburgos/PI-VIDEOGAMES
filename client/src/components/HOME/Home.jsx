@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import Card from '../CARD/Card';
 import Paginado from '../PAGINADO/Paginado';
 import SearchBar from '../SEARCHBAR/Searchbar';
+import Footer from '../FOOTER/Footer';
 import styles from '../HOME/Home.module.css'
 
 
@@ -163,8 +164,19 @@ export default function Home()  {
                     allVideogames = {allVideogames.length}
                     paginado = {paginado}                
                     />
-            <p>{'Page: '+ currentPage}</p>
+            <p className={styles.page}>{'Page: '+ currentPage}</p>
             </div>
+
+
+            <div>
+                <Footer />
+
+            </div>
+
+
+
+
+
         </div>
     )
 }

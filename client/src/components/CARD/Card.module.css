@@ -18,6 +18,7 @@
 .imageContainer{
     overflow: hidden;
     height: 200px;
+    filter: grayscale(70%)
 }
 
 .cardContent{

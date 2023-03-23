@@ -15,7 +15,7 @@ export default function Card({ name, image, genres, id}) {
             <h5 className={styles.genres}>{genres.join(", ")}</h5>
 
             <Link to={`/videogames/${id}`}> 
-            <img src={image} alt={name}  width='200px' height= '200px'/>
+            <img className={styles.imageContainer}  src={image} alt={name}  width='200px' height= '200px'/>
             </Link>
            
 {/* ARREGLAR: CUNANDO SE HACE CLICK, ABRE UNA CARD; 
