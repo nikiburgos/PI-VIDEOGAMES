@@ -18,7 +18,7 @@ export default function Landing(){
                       <button className={styles.button1}>START</button>
                     </Link>
 
-                    <Link to = '/home'>
+                    <Link to = '/about'>
                       <button className={styles.button2}>LEARN MORE...</button>
                     </Link>
 

@@ -1,0 +1,46 @@
+.fondo{
+    /* background-image: url('../../recursos/VIDEOGAMES\ PII.gif'); */
+    background-color: rgb(18, 17, 19) ;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    /* -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+}
+
+/* 
+  h1, h2, p {
+    color: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: justify;
+    
+  }
+  
+  .h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .p {
+    font-size: 18px;
+    line-height: 1.5; */
+  /* } */
+
+
+  

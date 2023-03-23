@@ -9,7 +9,7 @@
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 4rem;
     font-weight: bold;
-    color:rgb(65, 65, 65);
+    color:rgb(146, 197, 129);
     text-align: left;
     white-space: nowrap;
     display: block;
@@ -48,7 +48,7 @@
 
 /* Estilos para el fondo */
 .fondo{
-    background-image: url('../../recursos/VIDEOGAMES\ PII.gif');
+    background-image: url('./VIDEOGAMES\ PII.gif');
     margin: 0;
     width: 100vw;
     height: 100vh;
@@ -78,7 +78,7 @@
   }
   
   .button1:hover {
-    background-color: #000;
+    background-color: rgb(146, 197, 129);
     cursor: pointer
   }
   
@@ -90,7 +90,7 @@
   }
   
   .button2:hover {
-    background-color: #000;
+    background-color:  rgb(146, 197, 129);
     color: #fff;
     cursor: pointer
   }
