@@ -163,7 +163,7 @@ export default function Home()  {
                     allVideogames = {allVideogames.length}
                     paginado = {paginado}                
                     />
-            
+            <p>{'Page: '+ currentPage}</p>
             </div>
         </div>
     )
