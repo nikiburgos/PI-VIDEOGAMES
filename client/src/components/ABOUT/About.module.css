@@ -1,4 +1,5 @@
 .fondo{
+    /* background-image: url('../HOME/FONDO.gif'); */
     background-color: rgb(255, 255, 255) ;
     margin: 0;
     width: 100vw;
@@ -81,3 +82,48 @@
     color: #fff;
     cursor: pointer
   }
+
+
+  .encabezado{
+    display: flex;  
+    justify-content: right;  
+    padding:  1rem;  
+    margin-bottom: 16px;
+    /* border-radius: 99999999rem; */
+    width: 90%;
+    /* box-shadow: 1px 1px 4px black;
+    background-color: rgba(86, 86, 60, 0.4) ; */
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .backbutton{
+    
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 4px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 17px 48px;
+    color: #fff;
+    background-color: rgb(146, 197, 129);
+    height: 48px;
+  }
+    backbutton:hover{
+        transform: scale(1.04);
+        background-color: rgb(230, 190, 96)
+    }
+
+    
+
+  

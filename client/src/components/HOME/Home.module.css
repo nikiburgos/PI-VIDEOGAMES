@@ -1,0 +1,121 @@
+.encabezado{
+    display:block;  
+    justify-content: center;  
+    padding:  1rem;  
+    margin-bottom: 16px;
+    /* border-radius: 99999999rem; */
+    width: 90%;
+    /* /* box-shadow: 1px 1px 4px black;
+    background-color: rgba(86, 86, 60, 0.4) ; */ 
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .fondo{
+    
+      /* background-image: url('../HOME/FONDO.gif'); */
+      width: 100vw;
+      height: 100vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      justify-content: center;
+      align-items: center;
+  }  
+
+  .button{
+    
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 4px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 17px 48px;
+    color: #fff;
+    background-color: rgb(18, 17, 19);
+    height: 48px;
+    margin: .2rem;
+  }
+    .button:hover{
+        transform: scale(1.04);
+        background-color: rgb(146, 197, 129)
+    }
+
+.text{
+  color: rgb(146, 197, 129);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  letter-spacing:1rem 
+  
+}
+
+.tarjetas{  
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  margin: 2rem;   
+  padding: 1rem;  
+  width: 90%; 
+  /* box-shadow: 2px 2px 8px black;
+  background-color: rgba(6, 6, 5, 0.4) ; */
+  gap: 1em;
+  /* background-color: rgba(146, 197, 129, 0.759); */
+
+
+}
+
+/* ------------ FILTROS DE ORDENAMIENTO -----------------  */
+
+.selectContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.selectContainerDropdown {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-family: helvetica;
+  text-transform: uppercase;
+}
+
+.selectContainerDropdown:hover {
+  background-color: #f2f2f2;
+}
+
+.selectContainerDropdown:focus {
+  outline: none;
+  box-shadow: 0 0 5px #9ecaed;
+}
+
+.selectContainerDropdown option {
+  font-size: 16px;
+}
+
+.selectContainerDropdown option:hover {
+  background-color: #f2f2f2;
+}
+
+.selectContainerDropdown option:checked {
+  background-color: #9ecaed;
+  color: white;
+}
+
+.selectContainerDropdown option[value=''] {
+  display: none;
+}

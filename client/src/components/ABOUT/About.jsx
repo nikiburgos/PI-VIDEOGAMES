@@ -5,15 +5,25 @@ import imagen from "../../recursos/imagesAbout";
 
 
 
+
 export default function About(){
     return(
+
         <div className={styles.fondo}>
+            <div className={styles.encabezado}> 
+                
+                <Link to='/home'> 
+                <button className={styles.backbutton}>BACK TO HOME</button>
+                </Link>
+                <Link></Link>
+            </div>
+            
             
             <div className={styles.container1}>  
                 <h2 className={styles.title}>ABOUT THE SITE </h2>                                     
                    
                     <p className={styles.text}> This site was created exclusively for the <i><b>Individual Project of 'SoyHENRY' bootcamp.</b></i></p>
-                    <p className={styles.text}>The idea is to make a website that shows a large number of video games with their features brought from an external API, as well as the possibility of uploading new video games by the client</p>
+                    <p className={styles.text}>The idea was to make -from the begining- a website that shows a large number of video games with their features brought from an external API, as well as the possibility of uploading new video games by the client</p>
                     <p className={styles.text}> This site was created using: </p>
                     
                         <div className={styles.logos}>
