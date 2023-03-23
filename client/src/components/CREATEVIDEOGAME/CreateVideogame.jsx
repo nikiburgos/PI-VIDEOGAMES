@@ -3,6 +3,8 @@ import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { getGenres, postVideogame } from "../../redux/actions/actions";
+import styles from "../CREATEVIDEOGAME/CreateVideogame.module.css"
+import Footer from "../FOOTER/Footer"
 
 
 function validation (input){
@@ -14,7 +16,7 @@ function validation (input){
   } else if (!input.released){
     errors.released = 'Release date is required';
   } else if (!input.image){
-    errors.image = 'Image is required'
+    errors.image = 'Image is required' //controlar tmb q sea una url ! 
   } else if (input.rating < 0 || input.rating > 5) {
     errors.rating = 'The rating must be between "0" and "5"'; 
   } else if (!input.platforms){
@@ -119,67 +121,81 @@ export default function CreateVideogame(){
     
     return (
         <div>
-          <Link to='/home'>BACK</Link>
+
+            <div className={styles.encabezado}> 
+                
+                            
+                <Link to='/home'> <button className={styles.button}>All Videogames</button> </Link>
+                
+                <Link to='/about'> 
+                <button className={styles.button}>about us</button>
+                </Link>
+                
+                
+                </div>
+
+
       
-          <h2>Upload a new videogame</h2>
+          <h2 className={styles.title}>Upload a new videogame</h2>
       
-          <form onSubmit={event => handleSubmit(event)}> 
+          <form onSubmit={event => handleSubmit(event)} className={styles.container}> 
       
-            <div>
+            <div >
                 {/* NAME */}
               <div>
-              <label>Name:</label>
-              <input type="text" value={input.name} onChange={event => handleChange(event)} name='name' />
-              {errors.name && (<p>{errors.name}</p>)}
+              <label className={styles.text}>Name:</label>
+              <input className={styles.input} type="text" value={input.name} onChange={event => handleChange(event)} name='name' />
+              {errors.name && (<p className={styles.error}>{errors.name}</p>)}
               </div>
 
                 {/* DESCRIPTION */}
-              <div>
-              <label>Description:</label>
-              <input type="text" value={input.description} onChange={event => handleChange(event)}name='description'  />
-              {errors.description && (<p>{errors.description}</p>)}
+              <div className={styles.separado}>
+              <label className={styles.text}>Description:</label>
+              <input className={styles.input} type="text" value={input.description} onChange={event => handleChange(event)}name='description'  />
+              {errors.description && (<p className={styles.error}>{errors.description}</p>)}
               </div>
 
                 {/* RELEASE DATE */}
-              <div>
-              <label>Realease Date:</label>
-              <input type="date" value={input.released} onChange={event => handleChange(event)} name='released' />
-              {errors.released && (<p>{errors.released}</p>)}
+              <div className={styles.separado}>
+              <label className={styles.text}>Realease Date:</label>
+              <input className={styles.input} type="date" value={input.released} onChange={event => handleChange(event)} name='released' />
+              {errors.released && (<p className={styles.error}>{errors.released}</p>)}
               </div>
       
                 {/* RATING */}
-              <div>
-              <label>Rating:</label>
-              <input type="number" value={input.rating} onChange={event => handleChange(event)}name='rating' 
+              <div className={styles.separado}>
+              <label className={styles.text}>Rating:</label>
+              <input className={styles.input} type="number" value={input.rating} onChange={event => handleChange(event)}name='rating' 
               />
-              {errors.rating && (<p>{errors.rating}</p>)}
+              {errors.rating && (<p className={styles.error}>{errors.rating}</p>)}
 
               </div>
       
                 {/* PLATFORMS */}
-              <div>
-              <label>Platforms: <br/></label>
-                 <div id="checkbox-container">
+              <div className={styles.platforms}>
+              <label className={styles.text}>Platforms: <br/></label>
+                 <div clasName={styles.fondoPlataformas}   id="checkbox-container">
                 {platformsApi.map((option) => (
-                  <label key={option}>
-                    <input type="checkbox" name="platform" value={option} onChange={handleCheck} />
+                  <label  key={option}>
+                    <input  type="checkbox" name="platform" value={option} onChange={handleCheck} />
                     {option}
-                  </label>  
-                ))}
-                {errors.platform && (<p>{errors.platform}</p>)}
+                  </label> 
+                ))} 
+                {errors.platform && (<p className={styles.error}>{errors.platform}</p>)}
                  </div>
               </div>
       
                 {/* IMAGE */}
-              <div>
-              <label>Image:</label>
-              <input type="text" value={input.image} onChange={event => handleChange(event)} name='image' />
-              {errors.image && (<p>{errors.image}</p>)}
+              <div className={styles.separado}>
+              <label className={styles.text}>Image:</label>
+              <input className={styles.input} type="text" value={input.image} onChange={event => handleChange(event)} name='image' />
+              {errors.image && (<p className={styles.error}>{errors.image}</p>)}
               </div>
              
                 {/* GENRES */}
-              <div>
-              <select onChange={handleSelect}>
+              <div className={styles.separado}>
+                <label className={styles.text}>Genre:</label>
+              <select onChange={handleSelect} >
               { genres && genres.map(g => (
               <option key={g.id} value={g.name}>{g.name}</option>
               ))
@@ -193,14 +209,19 @@ export default function CreateVideogame(){
                 </li>
                  ))}
               </ul>
-              {errors.genres && (<p>{errors.genres}</p>)}
+              {errors.genres && (<p className={styles.error}>{errors.genres}</p>)}
               </div>
                     
             </div>
           
-          <button type="submit">Upload Videogame</button>
+          <button  className={styles.buttonUpload} type="submit">Upload Videogame</button>
 
           </form>
+
+          <div className={styles.margin}>
+            <Footer />
+          </div>
+
         </div>
       );
 
