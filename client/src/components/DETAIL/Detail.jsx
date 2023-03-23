@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../redux/actions/actions";
 import { useEffect } from "react";
+import Footer from "../FOOTER/Footer";
+import styles from "../DETAIL/Detail.module.css";
 
 export default function Detail(){
     const dispatch = useDispatch();
@@ -18,26 +20,57 @@ export default function Detail(){
 
 
     return (
-        <div>
-{
+        <div className={styles.background}>
+
+            <div className={styles.encabezado}> 
+                
+                <Link to='/videogame'> 
+                <button className={styles.button}>Add new Videogame</button>
+                </Link>
+
+                <Link to='/home'> <button className={styles.button}>All Videogames</button> </Link>
+
+                <Link to='/about'> 
+                <button className={styles.button}>about us</button>
+                </Link>
+
+
+            </div>
+
+            <div className={styles.fondo}>       
+
+        {  
+
              detailVideogame ? 
 
-             <div>
-                <h1>{detailVideogame?.name}</h1>                   
-                <img src={detailVideogame?.image} alt={detailVideogame.name} width='100PX' height='100px'/>
-                <h3>Platforms: {detailVideogame?.platforms}</h3>
-                <h3>Genres: {detailVideogame?.genres}</h3>
-                <h2>Released Date: {detailVideogame?.released}</h2>
-                <h2>Rating: {detailVideogame?.rating}</h2>
+             <div className={styles.contenedor}>
+                <div className={styles.columnaizquierda}> 
+                    <img  className={styles.img} src={detailVideogame?.image} alt={detailVideogame.name} width='100PX' height='100px'/>                
+                </div>
+
+                <div className={styles.columnaderecha}>
+                    <h1 className={styles.name}>{detailVideogame?.name}</h1>           
+                    <h3 className={styles.text}> <b>PLATFORMS:</b> {detailVideogame.platforms}</h3>
+                    <h3 className={styles.text}> <b>GENRES:</b> {detailVideogame.genres}</h3>
+                    <h2 className={styles.text}> <b>RELEASE DATE:</b> {detailVideogame?.released}</h2>
+                    <h2 className={styles.text}> <b>RATING:</b> {detailVideogame?.rating}</h2>
+                </div>
+             
             </div> :
 
             <div>
             <h3>Loading...</h3>
             </div>
 }
-        <Link to='/home'>
-            <button>HOME</button>
-        </Link>
+            </div>
+<br />
+
+
+            <div className={styles.margin}>            
+            <Footer />             
+            </div>
+        
+
         </div>
     )
 }

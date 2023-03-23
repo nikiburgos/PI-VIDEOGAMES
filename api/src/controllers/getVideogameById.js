@@ -16,8 +16,8 @@ const getApiInfoById = async function(id) {
             image: urlData.data.background_image,
             released: urlData.data.released,
             rating: urlData.data.rating,
-            platforms: urlData.data.platforms.map(p => p.platform.name),
-            genres: urlData.data.genres.map(g => g.name)
+            platforms: urlData.data.platforms.map(p => p.platform.name).join(', '),
+            genres: urlData.data.genres.map(g => g.name).join(', ')
         }
 
         return gamesData;

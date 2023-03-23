@@ -2,6 +2,10 @@
     display: flex;
     flex-direction: row;
     background-color: rgb(146, 197, 129);
+    position: abosolute;
+    bottom: 0;
+    width: 100%;
+    margin-top: 2rem;
   }
   
   .left {
@@ -24,7 +28,7 @@
 
 
 .img2 {
-    width: 100px; /* para que las imágenes se vean pequeñas */
+    width: 40px; /* para que las imágenes se vean pequeñas */
     height: auto; /* para mantener la relación de aspecto de la imagen */
     margin-right: 10px; /* para agregar un pequeño espacio entre cada imagen */
 }
@@ -41,6 +45,7 @@
     color: rgba(18, 17, 19, 0.673);
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     letter-spacing:2rem ;
+    font-size: 1.6rem;
   }
 
   .text{
