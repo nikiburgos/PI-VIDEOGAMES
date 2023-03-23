@@ -120,7 +120,7 @@ export default function CreateVideogame(){
   
     
     return (
-        <div>
+        <div >
 
             <div className={styles.encabezado}> 
                 
@@ -137,7 +137,7 @@ export default function CreateVideogame(){
 
       
           <h2 className={styles.title}>Upload a new videogame</h2>
-      
+        <div className={styles.poneteMargen}>
           <form onSubmit={event => handleSubmit(event)} className={styles.container}> 
       
             <div >
@@ -174,7 +174,7 @@ export default function CreateVideogame(){
                 {/* PLATFORMS */}
               <div className={styles.platforms}>
               <label className={styles.text}>Platforms: <br/></label>
-                 <div clasName={styles.fondoPlataformas}   id="checkbox-container">
+                 <div className={styles.fondoPlataformas}   id="checkbox-container">
                 {platformsApi.map((option) => (
                   <label  key={option}>
                     <input  type="checkbox" name="platform" value={option} onChange={handleCheck} />
@@ -217,8 +217,9 @@ export default function CreateVideogame(){
           <button  className={styles.buttonUpload} type="submit">Upload Videogame</button>
 
           </form>
+          </div>
 
-          <div className={styles.margin}>
+          <div >
             <Footer />
           </div>
 

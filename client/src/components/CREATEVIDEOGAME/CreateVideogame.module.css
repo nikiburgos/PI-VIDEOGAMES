@@ -1,3 +1,5 @@
+
+
 .encabezado{
     display:block;  
     justify-content: center;  
@@ -42,13 +44,13 @@
 
 
     .container {    
-        display: fixed;
+        display: block;
         /* flex-direction: column; */
         /* align-items: center;     */
         padding:  .5rem;
-        margin-bottom: 5rem; 
-        margin-top: 2rem;   
-        width: 21rem;
+        margin-bottom: 4rem; 
+        margin-top: 4rem;   
+        width: 24rem;
         box-shadow: 2px 2px 8px black;
         background-color: rgba(247, 247, 242, 0.4) ;
         transition: 0.5s;
@@ -58,16 +60,11 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        text-align: justify;
+        text-align: left;
         
         }
 
-        .margin{    
-            margin-top:3rem;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-          }
+
 
 
           .title{
@@ -77,6 +74,8 @@
             text-transform: uppercase;
             color: rgb(54, 54, 26);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-top: 0.02rem;
+            
         }
 
         .text{
@@ -92,12 +91,13 @@
         .input{
             font-size: 13px;
             border-radius: 4px;
-            line-height: 1.5;
+            line-height: 1.4;
             padding: 5px 10px;
             transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
-            border: 2px solid #dee1e2;
+            border: 3px solid #dee1e2;
             color: rgb(14, 14, 16);
             background: #dee1e2;
+            width: 90%
             
             /* display: block; */
             
@@ -150,15 +150,23 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        width: 100%;
+        width: 98%;
         margin-top: 10px;
+        border-radius: 4px;
         
       }
 
       .fondoPlataformas{
-        background-color: #c4c4c5;
+        transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+        border: 2px solid #dee1e2;
+        color: rgb(14, 14, 16);
+        background: #dee1e2;
       }
     
       .separado{
         margin-top: .4em;
+      }
+
+      .poneteMargen{
+        margin-bottom: 40rem;
       }
