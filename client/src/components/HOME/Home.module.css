@@ -20,8 +20,9 @@
       background-repeat: no-repeat;
       background-size: cover;
       justify-content: center;
-      align-items: center;
-  }  
+      align-items: center;      
+      /* background-color:black */
+    }
 
   .button{
     
@@ -62,12 +63,13 @@
 
 .tarjetas{  
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  margin: 2rem;   
+  grid-template-columns: 33% 33% 33%;
+  
+  margin-left: 8rem;
   padding: 1rem;  
   width: 90%; 
-  /* box-shadow: 2px 2px 8px black;
-  background-color: rgba(6, 6, 5, 0.4) ; */
+  /* box-shadow: 2px 2px 8px black;*/
+  /* background-color: rgba(6, 6, 5, 0.4) ;  */
   gap: 1em;
   /* background-color: rgba(146, 197, 129, 0.759); */
 
@@ -124,4 +126,10 @@
 
 .selectContainerDropdown option[value=''] {
   display: none;
+}
+
+.divdelTomi{
+  background-color: rgba(255, 255, 255, 0.533);
+  margin-bottom: 3rem;
+
 }

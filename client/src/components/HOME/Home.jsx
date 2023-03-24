@@ -68,6 +68,8 @@ export default function Home()  {
     return (
         <div className={styles.fondo}>
 
+            <div className={styles.divdelTomi}>
+
             <div className={styles.encabezado}> 
                 
                 <Link to='/videogame'> 
@@ -142,7 +144,11 @@ export default function Home()  {
 
                 </div>
 
-            </div>     
+            </div>   
+
+
+{/* este es el div q me hizo poner el tomi */}
+            </div>  
         
             <div className={styles.tarjetas}> {/* RENDERIZADO DE LA CARD  */}
             { currentVideogames?.map ((element) => {

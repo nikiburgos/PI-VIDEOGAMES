@@ -13,14 +13,16 @@ export default function About(){
             <div className={styles.encabezado}> 
                 
                 <Link to='/home'> 
-                <button className={styles.backbutton}>BACK TO HOME</button>
+                <button className={styles.backbutton}>HOME</button>
                 </Link>
-                <Link></Link>
+                <Link to= '/'>
+                <button className={styles.backbutton}>LANDING</button>
+                </Link>
             </div>
             
             
             <div className={styles.container1}>  
-                <h2 className={styles.title}>ABOUT THE SITE </h2>                                     
+                <h2 className={styles.title}>THE SITE </h2>                                     
                    
                     <p className={styles.text}> This site was created exclusively for the <i><b>Individual Project of <a href='https://www.soyhenry.com/' target='_blank'>'SoyHENRY'</a>  bootcamp.</b></i></p>
                     <p className={styles.text}>The idea was to make -from the begining- a website that shows a large number of video games with their features brought from an external API, as well as the possibility of uploading new video games by the client</p>
@@ -46,7 +48,7 @@ export default function About(){
            
 
             <div className={styles.container2} >  
-                <h2 className={styles.title}>ABOUT THE CREATOR</h2>
+                <h2 className={styles.title}> THE CREATOR</h2>
                 <p className={styles.text}> My name is Nikki Burgos, Full Stack Web Development student. I'm currently finishing the bootcamp "SoyHENRY" with more than 800 hours of practice in web programming. </p>
                 <p className={styles.text}> You can learn more about my work through LinkedIn and Github. </p>
                         <div className={styles.logos}>
