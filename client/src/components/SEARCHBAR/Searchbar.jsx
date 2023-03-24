@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getVideogameByName } from "../../redux/actions/actions";
 import styles from '../SEARCHBAR/Searchbar.module.css'
+// import lupa from '../../recursos/imagesAbout'
+
 
 export default function SearchBar () {
     const dispatch = useDispatch();
@@ -23,16 +25,35 @@ export default function SearchBar () {
     
 
     return (
-        <div >
-            <input  
+        <div className={styles.body}>
+
+
+            <div className={styles.box}>
+                <form>
+                    <input 
+                    type="text" 
+                    className={styles.input} 
+                    name="txt" 
+                    onmouseout="this.value = ''; this.blur();" 
+                    onChange={event => handleInputChange(event)}
+                    onKeyDown= {event => event.key === 'Enter' && handleSubmit(event)}
+                    placeholder= 'SEARCH'
+                    />
+
+                </form>
+                
+            </div>
+
+
+            {/* <input  
                 className={styles.search}
                 type = 'text'
-                placeholder="Game name..."
+                placeholder='game name...'
                 onChange={event => handleInputChange(event)}
                 onKeyDown= {event => event.key === 'Enter' && handleSubmit(event)}
             />
 
-            <button className={styles.button} type="submit" onClick={event => handleSubmit(event)}>Search</button>
+            <button className={styles.button} type="submit" onClick={event => handleSubmit(event)}>Search</button> */}
 
         </div>
     )

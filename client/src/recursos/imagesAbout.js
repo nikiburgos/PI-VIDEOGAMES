@@ -8,7 +8,7 @@ import reactlogo from '../recursos/reactlogo.png';
 import reduxlogo from '../recursos/reduxlogo.png';
 import githublogo from '../recursos/githublogo.png';
 import linkedinLogo from '../recursos/linkedinLogo.png'
-
+import lupa from '../recursos/lupa.png'
 
 export default  {
     'imgExpress': expresslogo,
@@ -19,5 +19,6 @@ export default  {
     'imgReact': reactlogo,
     'imgRedux': reduxlogo,
     'imgLinkedin': linkedinLogo,
-    'imgGithub': githublogo
+    'imgGithub': githublogo,
+    'lupa': lupa
 }

@@ -8,8 +8,9 @@ export default function Landing(){
 
             <div className={styles.columnaizquierda}>            
                 <h2 className={styles.title2}>Welcome to</h2>
-                <h1 className={styles.title1}>VIDEOGAMES PI</h1>
-                <h3 className={styles.title3}>THE ULTIMATE VIDEOGAMES' SITE</h3>
+                {/* <h1 className={styles.title1}>VIDEOGAMES PI</h1> */}
+                <img className={styles.logo} src='/logoPIGAMES.png' alt="" />
+                {/* <h3 className={styles.title3}>THE ULTIMATE VIDEOGAMES' SITE</h3> */}
             
 
                 <div className={styles.buttonsContainer}>

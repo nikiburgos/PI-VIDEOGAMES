@@ -85,66 +85,78 @@ export default function Home()  {
             </div>
 
             {/* TITULO DE LA PAGINA */}
-            <h1 className={styles.text}>VIDEOGAMES INDIVIDUAL PROJECT</h1>
+            {/* <h1 className={styles.text}>VIDEOGAMES INDIVIDUAL PROJECT</h1> */}
+
+            <div>
+                <img src="logoPIGAMES.png" alt="" />
+            </div>
+
             
-                {/* RENDERIZACION SEARCH BAR */}
-                <SearchBar   />
+                <div className={styles.searchandorder}>
+                    {/* RENDERIZACION SEARCH BAR */}
+                    <SearchBar   />
+
+
+
            
             
-            <div> {/* FILTROS Y ORDENAMIENTO  */} 
-                       
-                <div className={styles.selectContainer}>
-                        <select className={styles.selectContainerDropdown} onChange={event => handleSortByName(event)}>
-                            <option value=''>--Order by Name--</option>
-                            <option value='asc'>A-Z</option>
-                            <option value='desc'>Z-A</option>
-                        </select>
+                    <div> {/* FILTROS Y ORDENAMIENTO  */} 
+                            
+                        <div className={styles.selectContainer}>
+                                <select className={styles.selectContainerDropdown} onChange={event => handleSortByName(event)}>
+                                    <option value=''>--Order by Name--</option>
+                                    <option value='asc'>A-Z</option>
+                                    <option value='desc'>Z-A</option>
+                                </select>
 
-                        <select  className={styles.selectContainerDropdown} onChange={event => handleFilteredGenre(event)}> {/* filtrar por género  */}
-                            <option value=''>--Order by Genre--</option>
-                            <option value='All'>All Genres</option>
-                            <option value='Action'>Action</option>
-                            <option value='Indie'>Indie</option>
-                            <option value='Adventure'>Adventure</option>
-                            <option value='RPG'>RPG</option>
-                            <option value='Strategy'>Strategy</option>
-                            <option value='Shooter'>Shooter</option>
-                            <option value='Casual'>Casual</option>
-                            <option value='Simulation'>Simulation</option>
-                            <option value='Puzzle'>Puzzle</option>
-                            <option value='Arcade'>Arcade</option>
-                            <option value='Platformer'>Platformer</option>
-                            <option value='Racing'>Racing</option>
-                            <option value='Massively Multiplayer'>Massively Multiplayer</option>
-                            <option value='Sports'>Sports</option>
-                            <option value='Fighting'>Fighting</option>
-                            <option value='Family'>Family</option>
-                            <option value='Board Games'>Board Games</option>
-                            <option value='Educational'>Educational</option>
-                            <option value='Card'>Card</option>                    
-                        </select>
+                                <select  className={styles.selectContainerDropdown} onChange={event => handleFilteredGenre(event)}> {/* filtrar por género  */}
+                                    <option value=''>--Order by Genre--</option>
+                                    <option value='All'>All Genres</option>
+                                    <option value='Action'>Action</option>
+                                    <option value='Indie'>Indie</option>
+                                    <option value='Adventure'>Adventure</option>
+                                    <option value='RPG'>RPG</option>
+                                    <option value='Strategy'>Strategy</option>
+                                    <option value='Shooter'>Shooter</option>
+                                    <option value='Casual'>Casual</option>
+                                    <option value='Simulation'>Simulation</option>
+                                    <option value='Puzzle'>Puzzle</option>
+                                    <option value='Arcade'>Arcade</option>
+                                    <option value='Platformer'>Platformer</option>
+                                    <option value='Racing'>Racing</option>
+                                    <option value='Massively Multiplayer'>Massively Multiplayer</option>
+                                    <option value='Sports'>Sports</option>
+                                    <option value='Fighting'>Fighting</option>
+                                    <option value='Family'>Family</option>
+                                    <option value='Board Games'>Board Games</option>
+                                    <option value='Educational'>Educational</option>
+                                    <option value='Card'>Card</option>                    
+                                </select>
 
-                        <select  className={styles.selectContainerDropdown} onChange={event => handleFilteredByOrigin(event)}> {/* filtrar por origen: api o bbd  */}
-                            <option value=''>--Order by Creation--</option>
-                            <option value='all'>All</option>
-                            <option value='database'>Created by you</option>
-                            <option value='Api'>Our DataBase</option>
-                        </select>  
+                                <select  className={styles.selectContainerDropdown} onChange={event => handleFilteredByOrigin(event)}> {/* filtrar por origen: api o bbd  */}
+                                    <option value=''>--Order by Creation--</option>
+                                    <option value='all'>All</option>
+                                    <option value='database'>Created by you</option>
+                                    <option value='Api'>Our DataBase</option>
+                                </select>  
 
-                        <select  className={styles.selectContainerDropdown} onChange={event => handlerByRating(event)}>  {/* filtrar por rating */}
-                            <option value=''>--Order by Rating--</option>
-                            <option value='asc'>Ascending</option>
-                            <option value='desc'>Descending</option>
-
-
-                        </select>
-
-                                
+                                <select  className={styles.selectContainerDropdown} onChange={event => handlerByRating(event)}>  {/* filtrar por rating */}
+                                    <option value=''>--Order by Rating--</option>
+                                    <option value='asc'>Ascending</option>
+                                    <option value='desc'>Descending</option>
 
 
-                </div>
+                                </select>
 
-            </div>   
+                                        
+
+
+                        </div>
+
+                    </div>   
+
+                </div>{/* div de cierre, searchandorder */}
+            
 
 
 {/* este es el div q me hizo poner el tomi */}

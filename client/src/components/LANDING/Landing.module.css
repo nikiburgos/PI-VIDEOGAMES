@@ -5,7 +5,7 @@
   padding: 2%;
 }
 
-.title1{
+/* .title1{
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 4rem;
     font-weight: bold;
@@ -15,6 +15,15 @@
     display: block;
     margin: 0;
     
+} */
+
+.logo{
+  display: flex;
+    justify-content: flex-start;
+    width: 30%;
+    padding-left: 4%;
+    margin-bottom: 1.6rem;
+  
 }
 
 .title2{
@@ -29,6 +38,7 @@
     display: block;
     margin: 0;
     
+    
 }
 
 
@@ -42,6 +52,7 @@
     white-space: nowrap;
     display: block;
     margin: 0;
+    margin-bottom: 2rem;
    
 }
 
@@ -78,7 +89,7 @@
   }
   
   .button1:hover {
-    background-color: rgb(146, 197, 129);
+    background-color: rgb(255, 159, 28);
     cursor: pointer
   }
   
@@ -90,7 +101,7 @@
   }
   
   .button2:hover {
-    background-color:  rgb(146, 197, 129);
+    background-color:rgb(255, 159, 28);
     color: #fff;
     cursor: pointer
   }
