@@ -1,13 +1,15 @@
 import React from 'react';
 import { useState, useEffect } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux'; 
-import { getVideogames, filteredVideogamesByGenres, filteredByOrigin, orderByName, orderByRating} from '../../redux/actions/actions';
+import { mostRating, getVideogames, filteredVideogamesByGenres, filteredByOrigin, orderByName, orderByRating} from '../../redux/actions/actions';
 import { Link } from 'react-router-dom'
 import Card from '../CARD/Card';
 import Paginado from '../PAGINADO/Paginado';
 import SearchBar from '../SEARCHBAR/Searchbar';
 import Footer from '../FOOTER/Footer';
+import Rating from '../RATING/Rating';
 import styles from '../HOME/Home.module.css'
+
 
 
 export default function Home()  {
@@ -25,13 +27,18 @@ export default function Home()  {
     
     const currentVideogames = allVideogames.slice(indexOfFirstVideogame, indexOfLastVideogame) //slice agarra un arreglo y me toma la porción que yo quiero: el indice del primer videogame y el del ultimo. 
 
+    const[loading, setLoading] = useState(true);
+
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
 
-    useEffect(() => {   //aca armamos el dispatch de todos los videogames
+    useEffect(() => {
         dispatch(getVideogames());
-    },[])
+        setLoading(false)        
+      }, []);
+      
+
 
     function handleClick(event){ //Handle que me muestra ALL VIDEOGAMES
         event.preventDefault(); //ponerlo para que no se nos recargue la página por el useEffect! 
@@ -46,7 +53,7 @@ export default function Home()  {
         dispatch(filteredByOrigin(event.target.value))
     }
 
- const [orden, setOrden] = useState('')
+    const [orden, setOrden] = useState('')
     function handleSortByName(event){  //Handle del ordenamiento Asc y Desc
         event.preventDefault();
         dispatch(orderByName(event.target.value))
@@ -56,7 +63,7 @@ export default function Home()  {
     }
 
     const [ratingchange, setRatingchange] = useState('');
-    function handlerByRating(e) { 
+    function handlerByRating(e) {             //handleByRating
         dispatch(orderByRating(e.target.value));
         setCurrentPage(1);   
                           
@@ -65,12 +72,19 @@ export default function Home()  {
     }
 
 
+    const [sortedByRating, setSortedByRating] = useState([]);
+    useEffect(() => {
+        const sortedVideogames = allVideogames.slice().sort((a, b) => b.rating - a.rating);
+        setSortedByRating(sortedVideogames);
+      }, [allVideogames]);
+      
+
+
+
     return (
         <div className={styles.fondo}>
 
-            <div className={styles.divdelTomi}>
-
-            <div className={styles.encabezado}> 
+          <div className={styles.encabezado}> 
                 
                 <Link to='/videogame'> 
                 <button className={styles.button}>Add new Videogame</button>
@@ -87,30 +101,44 @@ export default function Home()  {
             {/* TITULO DE LA PAGINA */}
             {/* <h1 className={styles.text}>VIDEOGAMES INDIVIDUAL PROJECT</h1> */}
 
-            <div>
-                <img src="logoPIGAMES.png" alt="" />
+            <div className={styles.logo}>
+                <Link to='/'>
+                <img src="logoPIGAMES.png" alt="" width='500px'  />
+                </Link>
             </div>
 
             
                 <div className={styles.searchandorder}>
                     {/* RENDERIZACION SEARCH BAR */}
                     <SearchBar   />
-
-
-
            
-            
                     <div> {/* FILTROS Y ORDENAMIENTO  */} 
                             
                         <div className={styles.selectContainer}>
                                 <select className={styles.selectContainerDropdown} onChange={event => handleSortByName(event)}>
-                                    <option value=''>--Order by Name--</option>
-                                    <option value='asc'>A-Z</option>
-                                    <option value='desc'>Z-A</option>
+                                    <option className={styles.selectContainerDropdownoption} value=''>Name</option>
+                                    <option className={styles.selectContainerDropdownoption} value='asc'>A-Z</option>
+                                    <option className={styles.selectContainerDropdownoption} value='desc'>Z-A</option>
+                                </select>
+
+                               
+                                <select  className={styles.selectContainerDropdown} onChange={event => handleFilteredByOrigin(event)}> {/* filtrar por origen: api o bbd  */}
+                                    <option value=''>CREATOR</option>
+                                    <option value='all'>All</option>
+                                    <option value='database'>Created by you</option>
+                                    <option value='Api'>Our DataBase</option>
+                                </select>  
+
+                                <select  className={styles.selectContainerDropdown} onChange={event => handlerByRating(event)}>  {/* filtrar por rating */}
+                                    <option value=''>RATING</option>
+                                    <option value='asc'>Ascending</option>
+                                    <option value='desc'>Descending</option>
+
+
                                 </select>
 
                                 <select  className={styles.selectContainerDropdown} onChange={event => handleFilteredGenre(event)}> {/* filtrar por género  */}
-                                    <option value=''>--Order by Genre--</option>
+                                    <option value=''>GENRE</option>
                                     <option value='All'>All Genres</option>
                                     <option value='Action'>Action</option>
                                     <option value='Indie'>Indie</option>
@@ -133,21 +161,6 @@ export default function Home()  {
                                     <option value='Card'>Card</option>                    
                                 </select>
 
-                                <select  className={styles.selectContainerDropdown} onChange={event => handleFilteredByOrigin(event)}> {/* filtrar por origen: api o bbd  */}
-                                    <option value=''>--Order by Creation--</option>
-                                    <option value='all'>All</option>
-                                    <option value='database'>Created by you</option>
-                                    <option value='Api'>Our DataBase</option>
-                                </select>  
-
-                                <select  className={styles.selectContainerDropdown} onChange={event => handlerByRating(event)}>  {/* filtrar por rating */}
-                                    <option value=''>--Order by Rating--</option>
-                                    <option value='asc'>Ascending</option>
-                                    <option value='desc'>Descending</option>
-
-
-                                </select>
-
                                         
 
 
@@ -158,17 +171,19 @@ export default function Home()  {
                 </div>{/* div de cierre, searchandorder */}
             
 
+            <div className={styles.blackbackground}>
 
-{/* este es el div q me hizo poner el tomi */}
-            </div>  
-        
             <div className={styles.tarjetas}> {/* RENDERIZADO DE LA CARD  */}
-            { currentVideogames?.map ((element) => {
+            { loading? 
+            
+            <img src='/loading.gif' alt="Loading" />
+            :
+            currentVideogames?.map ((element) => {
                     return (
                         <Card name={element.name} image = {element.image} genres= {element.genres} key ={element.id} id = {element.id}/>
                     )
                 
-                })
+                })            
             }
             </div>
 
@@ -185,15 +200,12 @@ export default function Home()  {
             <p className={styles.page}>{'Page: '+ currentPage}</p>
             </div>
 
-
+            
+</div>
             <div>
                 <Footer />
 
             </div>
-
-
-
-
 
         </div>
     )

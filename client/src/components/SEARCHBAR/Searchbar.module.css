@@ -120,11 +120,12 @@
         outline: none;
         transition: .5s;
         text-align: center;
+        /* letter-spacing: rem; */
         
     }
     .box:hover .input{
         width: 350px;
-        background: #3b3640;
+        background: rgb(18, 17, 19);
         border-radius: 10px;
     }
     /* .boxi{

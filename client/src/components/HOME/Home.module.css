@@ -1,4 +1,17 @@
 .encabezado{
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0px; /* ajusta el alto según tus necesidades */
+  width: auto;
+  background-color: #00000000;
+  z-index: 999; /* asegura que esté sobre los demás elementos */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
     display:block;  
     justify-content: center;  
     padding:  1rem;  
@@ -7,7 +20,6 @@
     width: 90%;
     /* /* box-shadow: 1px 1px 4px black;
     background-color: rgba(86, 86, 60, 0.4) ; */ 
-    /* background-color: rgba(86, 86, 60, 0.4); */
     margin-left: 1em;
     margin-right: 1em;
   }
@@ -51,7 +63,7 @@
   }
     .button:hover{
         transform: scale(1.04);
-        background-color: rgb(146, 197, 129)
+        background-color: rgb(255, 159, 28);
     }
 
 .text{
@@ -63,13 +75,18 @@
   
 }
 
+.blackbackground{
+  background-color: black;
+  margin-top: 0%;
+  margin-bottom: -2%;
+}
+
 .tarjetas{  
   display: grid;
   grid-template-columns: 33% 33% 33%;
-  
-  margin-left: 8rem;
+  margin-left: 10rem;
   padding: 1rem;  
-  width: 90%; 
+  width: 80%; 
   /* box-shadow: 2px 2px 8px black;*/
   /* background-color: rgba(6, 6, 5, 0.4) ;  */
   gap: 1em;
@@ -78,10 +95,11 @@
 }
 
 .page{
-  color: rgb(56, 77, 49);
+  color: rgb(0, 0, 0);
   font-family: Helvetica, Arial, sans-serif;
   letter-spacing: .2rem;
   text-transform: uppercase;
+  
   }
 
 /* ------------ FILTROS DE ORDENAMIENTO -----------------  */
@@ -89,44 +107,50 @@
 .selectContainer {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  margin-top: 20px;
+  margin-left: 60%; 
+  margin-top: 6%;
+  background-color:  rgb(255, 159, 28);
 }
 
 .selectContainerDropdown {
   padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(18, 17, 19) ;
+  border: 1px solid rgb(255, 159, 28);
   border-radius: 4px;
-  margin-right: 10px;
+  margin-right: 20px;
   cursor: pointer;
   font-family: helvetica;
   text-transform: uppercase;
+  background-color:  rgb(255, 159, 28);
+    
 }
 
 .selectContainerDropdown:hover {
-  background-color: #f2f2f2;
+  background-color:  rgb(255, 159, 28)
 }
 
 .selectContainerDropdown:focus {
   outline: none;
-  box-shadow: 0 0 5px #9ecaed;
+  /* box-shadow:rgb(255, 159, 28); */
 }
 
-.selectContainerDropdown option {
+.selectContainerDropdownoption {
   font-size: 16px;
+  /* border-radius: 999999999rem; */
 }
 
-.selectContainerDropdown option:hover {
-  background-color: #f2f2f2;
+.selectContainerDropdownoption:hover {
+  background-color: rgb(255, 159, 28);
 }
 
-.selectContainerDropdown option:checked {
-  background-color: #9ecaed;
-  color: white;
+.selectContainerDropdownoption:checked {
+  background-color: rgb(255, 159, 28);
+  color: rgb(255, 159, 28);
 }
 
-.selectContainerDropdown option[value=''] {
+.selectContainerDropdownoption[value=''] {
   display: none;
 }
 
@@ -142,4 +166,10 @@
   display: flex;
   background-color: rgb(255, 159, 28)
 
+}
+
+
+
+.logo{
+  margin-top: 5rem;
 }

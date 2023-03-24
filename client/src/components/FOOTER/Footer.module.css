@@ -1,11 +1,10 @@
 .container {
     display: flex;
     flex-direction: row;
-    background-color: rgb(146, 197, 129);
+    background-color: rgb(255, 159, 28);
     position: abosolute;
     bottom: 0;
     width: 100%;
-    margin-top: 2rem;
   }
   
   .left {

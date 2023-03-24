@@ -39,7 +39,8 @@
   }
     .button:hover{
         transform: scale(1.04);
-        background-color: rgb(146, 197, 129)
+        background-color: rgb(255, 159, 28)
+
     }
 
 
@@ -50,9 +51,9 @@
         padding:  .5rem;
         margin-bottom: 4rem; 
         margin-top: 4rem;   
-        width: 24rem;
+        width: 23rem;
         box-shadow: 2px 2px 8px black;
-        background-color: rgba(247, 247, 242, 0.4) ;
+        background-color: rgba(252, 252, 252, 0.4) ;
         transition: 0.5s;
         animation: ease-in-out;
         overflow: hidden;
@@ -60,7 +61,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        text-align: left;
+        text-align: center;
         
         }
 
@@ -79,7 +80,7 @@
         }
 
         .text{
-            font-size: 1.1em;            
+            font-size: 6em;            
             letter-spacing: .2rem;
             text-transform: uppercase;
             color: rgb(2, 2, 2);
@@ -89,14 +90,18 @@
 
 
         .input{
-            font-size: 13px;
+            font-size: 18px;
             border-radius: 4px;
             line-height: 1.4;
             padding: 5px 10px;
             transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
-            border: 3px solid #dee1e2;
+            border-bottom: 3px solid #dee1e2;
+            border-top: #61646700;
+            border-left: #61646700;
+            border-right: #61646700;
+
             color: rgb(14, 14, 16);
-            background: #dee1e2;
+            background: #dee1e21b;
             width: 90%
             
             /* display: block; */
@@ -112,7 +117,7 @@
         }
         
 .error{
-    color: rgb(146, 197, 129)
+    color: rgb(255, 159, 28)
 }
 
 
@@ -153,6 +158,11 @@
         width: 98%;
         margin-top: 10px;
         border-radius: 4px;
+        font-size: .8em;            
+          letter-spacing: .2rem;
+            text-transform: uppercase;
+            color: rgb(2, 2, 2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         
       }
 
@@ -160,7 +170,9 @@
         transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
         border: 2px solid #dee1e2;
         color: rgb(14, 14, 16);
-        background: #dee1e2;
+        background: #dee1e200;
+
+
       }
     
       .separado{

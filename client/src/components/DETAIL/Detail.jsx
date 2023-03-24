@@ -41,11 +41,11 @@ export default function Detail(){
 
         {  
 
-             detailVideogame ? 
+             detailVideogame? 
 
              <div className={styles.contenedor}>
                 <div className={styles.columnaizquierda}> 
-                    <img  className={styles.img} src={detailVideogame?.image} alt={detailVideogame.name} width='100PX' height='100px'/>                
+                    <img  className={styles.img} src={detailVideogame?.image} alt={detailVideogame.name} width='300px' height='100px'/>                
                 </div>
 
                 <div className={styles.columnaderecha}>
@@ -54,21 +54,24 @@ export default function Detail(){
                     <h3 className={styles.text}> <b>GENRES:</b> {detailVideogame.genres}</h3>
                     <h2 className={styles.text}> <b>RELEASE DATE:</b> {detailVideogame?.released}</h2>
                     <h2 className={styles.text}> <b>RATING:</b> {detailVideogame?.rating}</h2>
+                    <p className={styles.text}>{detailVideogame.description}</p>
                 </div>
              
-            </div> :
+            </div>:
 
             <div>
-            <h3>Loading...</h3>
+                <img src="/loading.gif" alt="" />
             </div>
 }
-            </div>
-<br />
 
 
-            <div className={styles.margin}>            
-            <Footer />             
             </div>
+
+                        <div className={styles.margin}>            
+                        <Footer />             
+                        </div>
+
+
         
 
         </div>

@@ -143,29 +143,31 @@ export default function CreateVideogame(){
             <div >
                 {/* NAME */}
               <div>
-              <label className={styles.text}>Name:</label>
-              <input className={styles.input} type="text" value={input.name} onChange={event => handleChange(event)} name='name' />
+              
+              <input className={styles.input} type="text" value={input.name} onChange={event => handleChange(event)} name='name' placeholder="NAME"/>
               {errors.name && (<p className={styles.error}>{errors.name}</p>)}
               </div>
 
                 {/* DESCRIPTION */}
               <div className={styles.separado}>
-              <label className={styles.text}>Description:</label>
-              <input className={styles.input} type="text" value={input.description} onChange={event => handleChange(event)}name='description'  />
+              <input className={styles.input} type="text" value={input.description} onChange={event => handleChange(event)}name='description'  
+              placeholder="DESCRIPTION"/>
               {errors.description && (<p className={styles.error}>{errors.description}</p>)}
               </div>
 
                 {/* RELEASE DATE */}
               <div className={styles.separado}>
-              <label className={styles.text}>Realease Date:</label>
-              <input className={styles.input} type="date" value={input.released} onChange={event => handleChange(event)} name='released' />
+              
+              <input className={styles.input} type="date" value={input.released} onChange={event => handleChange(event)} name='released'
+              placeholder="RELEASE DATE" />
               {errors.released && (<p className={styles.error}>{errors.released}</p>)}
               </div>
       
                 {/* RATING */}
               <div className={styles.separado}>
-              <label className={styles.text}>Rating:</label>
+              
               <input className={styles.input} type="number" value={input.rating} onChange={event => handleChange(event)}name='rating' 
+              placeholder="RATING"
               />
               {errors.rating && (<p className={styles.error}>{errors.rating}</p>)}
 
@@ -173,7 +175,7 @@ export default function CreateVideogame(){
       
                 {/* PLATFORMS */}
               <div className={styles.platforms}>
-              <label className={styles.text}>Platforms: <br/></label>
+              {/* <label className={styles.text}>Platforms: <br/></label> */}
                  <div className={styles.fondoPlataformas}   id="checkbox-container">
                 {platformsApi.map((option) => (
                   <label  key={option}>
@@ -187,14 +189,15 @@ export default function CreateVideogame(){
       
                 {/* IMAGE */}
               <div className={styles.separado}>
-              <label className={styles.text}>Image:</label>
-              <input className={styles.input} type="text" value={input.image} onChange={event => handleChange(event)} name='image' />
+              
+              <input className={styles.input} type="text" value={input.image} onChange={event => handleChange(event)} name='image' 
+              placeholder="IMAGE URL"/>
               {errors.image && (<p className={styles.error}>{errors.image}</p>)}
               </div>
              
                 {/* GENRES */}
               <div className={styles.separado}>
-                <label className={styles.text}>Genre:</label>
+                {/* <label className={styles.text}>Genre:</label> */}
               <select onChange={handleSelect} >
               { genres && genres.map(g => (
               <option key={g.id} value={g.name}>{g.name}</option>
