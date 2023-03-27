@@ -155,15 +155,28 @@ export default function Home()  {
 
                     </div>   
 
-                    <Link to='/home'>
-                    <button className={styles.buttonAll}>All Videogames</button>
-                    </Link>
+
+
+
+
 
                     <Link to='/videogame'> 
                     <button className={styles.buttonCreate}>Add new Videogame</button>
                     </Link>
 
-                <SearchBar   />
+                    <Link to='/home'>
+                    <button className={styles.buttonAll}>All Videogames</button>
+                    </Link>
+
+                    <SearchBar   />
+
+
+
+
+
+
+
+
 
                 </div>{/* div de cierre, searchandorder */}
             

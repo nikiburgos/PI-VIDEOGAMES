@@ -1,5 +1,4 @@
 
-
   .fondo{
     
       /* background-image: url('../HOME/FONDO.gif'); */
@@ -183,7 +182,7 @@
 }
 
 .buttonCreate{
-
+  
   display: inline-block;
   outline: none;
   cursor: pointer;
@@ -194,7 +193,6 @@
   transition-duration: .3s;
   border: 1px solid transparent;
   letter-spacing: 2px;
-  min-width: 160px;
   text-transform: uppercase;
   white-space: normal;
   font-weight: 700;
@@ -206,11 +204,12 @@
   height: 48px;
   margin-top: 3rem;
   margin-right: 2rem;
-  margin-left: 25rem;
+  margin-left: 16rem;
 }
 
 
 .buttonAll{
+  float: left;
   display: inline-block;
   outline: none;
   cursor: pointer;
@@ -232,7 +231,7 @@
   background-color: transparent;
   height: 48px;
   margin-top: 3rem;
-  margin-right: -34rem;
+  margin-right: -56rem;
   margin-left: 0rem;
 
 }
@@ -241,3 +240,4 @@
   color: #fff;
   background-color: #616467;
 }
+

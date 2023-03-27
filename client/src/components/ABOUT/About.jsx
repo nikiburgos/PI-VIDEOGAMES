@@ -15,9 +15,7 @@ export default function About(){
                 <Link to='/home'> 
                 <button className={styles.backbutton}>HOME</button>
                 </Link>
-                <Link to= '/'>
-                <button className={styles.backbutton}>LANDING</button>
-                </Link>
+
             </div>
             
             
