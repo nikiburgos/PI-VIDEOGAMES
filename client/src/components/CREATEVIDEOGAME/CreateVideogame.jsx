@@ -1,43 +1,66 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";  
+import {  useHistory } from "react-router-dom";  
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { getGenres, postVideogame } from "../../redux/actions/actions";
 import styles from "../CREATEVIDEOGAME/CreateVideogame.module.css"
 import Footer from "../FOOTER/Footer"
+import Header from "../HEADER/Header"
 
 
-function validation (input){
+function validation(input){
   let errors = {};
-  if (!input.name){
-    errors.name = "Name is required"
-  } else if (!input.description){
+  const urlRegex = /(ftp|http|https):\/\/[^ "]+/;
+  
+  if (!input.name || /^\s*$/.test(input.name)){
+    errors.name = "Name is required";
+  } else if (!/^[a-zA-Z0-9\s]*$/.test(input.name)){
+    errors.name = "Name must contain only letters or numbers";
+  }
+
+  if (!input.description || input.description.trim().length === 0){
     errors.description = 'Description is required'
-  } else if (!input.released){
+  }
+  
+  if (!input.released || input.released.trim().length === 0){
     errors.released = 'Release date is required';
-  } else if (!input.image){
+  }
+  
+  if (!input.image || input.image.trim().length === 0){
     errors.image = 'Image is required' //controlar tmb q sea una url ! 
-  } else if (input.rating < 0 || input.rating > 5) {
-    errors.rating = 'The rating must be between "0" and "5"'; 
-  } else if (!input.platforms){
+  } else if (!urlRegex.test(input.image)){
+    errors.image = 'Image must be a valid URL'
+  }
+
+  if (!input.platforms || input.platforms.length === 0){
     errors.platforms = 'Must select at least one platform'
-  } else if (!input.genres){
+  }
+
+  if (!input.genres || input.genres.length === 0){
     errors.genres = 'Must select at least one genre'
   }
-  return errors
+
+  if (input.rating === undefined || input.rating === null || isNaN(input.rating)){
+    errors.rating = 'Rating must be a number between 0 and 5';
+  } else if (input.rating < 0 || input.rating > 5) {
+    errors.rating = 'Rating must be a number between 0 and 5'; 
+  }
+  
+  return errors;
 }
+
 
 
 
 export default function CreateVideogame(){
     const dispatch = useDispatch();
     const genres = useSelector((state) => state.genres)
-    const history = useHistory(); //probar mejor con USE NAVIGATE!!!
+    const history = useHistory(); 
 
 
     const platformsApi = [
         "PC", "PlayStation 5", "PlayStation 4", "PlayStation 3", "Xbox One", "Xbox Series S/X", "Xbox 360", "Xbox",
-        "Nintendo Switch", "Nintendo 3DS", "Nintendo DS", "Nintendo DSi", "iOS", "Android", "macOS", "Linux"]
+        "Nintendo 3DS", "Nintendo DS", "Nintendo DSi", "iOS", "Android", "macOS", "Linux", "Nintendo Switch"]
 
     const [input, setInput] = useState({
          name: '',
@@ -96,49 +119,46 @@ export default function CreateVideogame(){
         }))
       }
       
-    function handleSubmit(event){
+      function handleSubmit(event) {
         event.preventDefault();
-        console.log(input);
-        
+      
+        if (Object.keys(errors).length > 0) {
+          alert('Please fix the errors before submitting the form');
+          return;
+        }
+      
         dispatch(postVideogame(input)).then((response) => {
-            console.log(response);
-          });
-          
-        alert('The videogame has been uploaded successfully')
+          console.log(response);
+        });
+      
+        alert('The videogame has been uploaded successfully');
         setInput({
-            name: '',
-            description: '',
-            released: '',
-            rating: '',
-            platforms: [],
-            image: '',
-            genres: []  
-        })
-
-        history.push ('/home') //es un metodo del router que me redirige a la ruta que le digo, MUY ÚTIL
-    }
+          name: '',
+          description: '',
+          released: '',
+          rating: '',
+          platforms: [],
+          image: '',
+          genres: []
+        });
+      
+        history.push('/home');
+      }
+      
+  
   
     
     return (
         <div >
 
-            <div className={styles.encabezado}> 
-                
-                            
-                <Link to='/home'> <button className={styles.button}>All Videogames</button> </Link>
-                
-                <Link to='/about'> 
-                <button className={styles.button}>about us</button>
-                </Link>
-                
-                
-                </div>
+        <Header /> 
 
+      <div className={styles.divPrincipal}>
 
-      
-          <h2 className={styles.title}>Upload a new videogame</h2>
-        <div className={styles.poneteMargen}>
-          <form onSubmit={event => handleSubmit(event)} className={styles.container}> 
+      <h2 className={styles.title}>Upload a new videogame</h2>
+          
+        <div className={styles.otrodiv} >
+        <form onSubmit={event => handleSubmit(event)} className={styles.container}> 
       
             <div >
                 {/* NAME */}
@@ -187,18 +207,12 @@ export default function CreateVideogame(){
                  </div>
               </div>
       
-                {/* IMAGE */}
-              <div className={styles.separado}>
-              
-              <input className={styles.input} type="text" value={input.image} onChange={event => handleChange(event)} name='image' 
-              placeholder="IMAGE URL"/>
-              {errors.image && (<p className={styles.error}>{errors.image}</p>)}
-              </div>
+
              
                 {/* GENRES */}
               <div className={styles.separado}>
-                {/* <label className={styles.text}>Genre:</label> */}
-              <select onChange={handleSelect} >
+              <label className={styles.text}>Genres:</label>
+              <select onChange={handleSelect} className={styles.genres} >
               { genres && genres.map(g => (
               <option key={g.id} value={g.name}>{g.name}</option>
               ))
@@ -207,12 +221,20 @@ export default function CreateVideogame(){
               
                <ul>
                 {input.genres.map((genreName, index) => (
-                <li key={index}>{genreName}{' '}
+                <li className={styles.genresselection} key={index}>{genreName}{' '}
                 <button type="button" onClick={() => handleRemoveGenre(genreName)}>x</button>
                 </li>
                  ))}
               </ul>
               {errors.genres && (<p className={styles.error}>{errors.genres}</p>)}
+              </div>
+
+             {/* IMAGE */}
+              <div className={styles.separado}>
+              
+              <input className={styles.input} type="text" value={input.image} onChange={event => handleChange(event)} name='image' 
+              placeholder="IMAGE URL"/>
+              {errors.image && (<p className={styles.error}>{errors.image}</p>)}
               </div>
                     
             </div>
@@ -221,8 +243,9 @@ export default function CreateVideogame(){
 
           </form>
           </div>
+          </div>
 
-          <div >
+          <div className={styles.margin}>
             <Footer />
           </div>
 

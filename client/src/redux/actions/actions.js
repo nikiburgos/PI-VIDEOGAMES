@@ -18,6 +18,22 @@ export const getVideogames = () => { //ACTION QUE TRAE TODOS LOS VIDEOGAMES
     }
 }
 
+// export const getVideogames = () => {
+//     return async (dispatch) => {
+//       try {
+//         setLoading(true); // set loading state to true
+//         const res = await axios.get("http://localhost:3001/videogames");
+//         dispatch({ 
+//             type: GET_VIDEOGAMES, 
+//             payload: res.data });
+//         setLoading(false); // set loading state to false
+//       } catch (err) {
+//         console.log(err);
+//       }
+//     };
+//   };
+  
+
 export const filteredVideogamesByGenres = (payload) => { //ACTION QUE TRAE VIDEOGAMES FILTRADOS POR GENERO
     return {
         type: FILTERED_BY_GENRES,

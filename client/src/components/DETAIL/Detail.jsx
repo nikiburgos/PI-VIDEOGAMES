@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../redux/actions/actions";
 import { useEffect } from "react";
 import Footer from "../FOOTER/Footer";
+import Header from "../HEADER/Header";
 import styles from "../DETAIL/Detail.module.css";
 
 export default function Detail(){
@@ -21,21 +22,7 @@ export default function Detail(){
 
     return (
         <div className={styles.background}>
-
-            <div className={styles.encabezado}> 
-                
-                <Link to='/videogame'> 
-                <button className={styles.button}>Add new Videogame</button>
-                </Link>
-
-                <Link to='/home'> <button className={styles.button}>All Videogames</button> </Link>
-
-                <Link to='/about'> 
-                <button className={styles.button}>about us</button>
-                </Link>
-
-
-            </div>
+                <Header />
 
             <div className={styles.fondo}>       
 

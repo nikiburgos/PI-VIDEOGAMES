@@ -3,6 +3,7 @@ import styles from '../PAGINADO/Paginado.module.css'
 
 export default function Paginado ({ videogamesPerPage, allVideogames, paginado, currentPage, setCurrentPage }){
     const pageNumbers = []
+    const activePage = currentPage;
 
     for (let i=1; i<Math.ceil(allVideogames/videogamesPerPage); i++){
         pageNumbers.push(i)
@@ -29,7 +30,7 @@ export default function Paginado ({ videogamesPerPage, allVideogames, paginado, 
                 </li>
                 { pageNumbers && pageNumbers.map((number) => (
                     <li className={styles.li} key={number} >
-                    <a className={styles.a} onClick={() => paginado(number)}>{number}</a>
+                    <a className={`${styles.a} ${activePage === number ? styles.active : ""}`} onClick={() => paginado(number)}>{number}</a>
                     </li>
                 ))}
                 <li className={styles.li}>

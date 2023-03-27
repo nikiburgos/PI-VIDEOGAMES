@@ -1,28 +1,4 @@
-.encabezado{
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 0px; /* ajusta el alto según tus necesidades */
-  width: auto;
-  background-color: #00000000;
-  z-index: 999; /* asegura que esté sobre los demás elementos */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-    display:block;  
-    justify-content: center;  
-    padding:  1rem;  
-    margin-bottom: 16px;
-    /* border-radius: 99999999rem; */
-    width: 90%;
-    /* /* box-shadow: 1px 1px 4px black;
-    background-color: rgba(86, 86, 60, 0.4) ; */ 
-    margin-left: 1em;
-    margin-right: 1em;
-  }
 
   .fondo{
     
@@ -64,6 +40,7 @@
     .button:hover{
         transform: scale(1.04);
         background-color: rgb(255, 159, 28);
+  
     }
 
 .text{
@@ -107,7 +84,7 @@
 .selectContainer {
   display: flex;
   flex-direction: row;
-  margin-left: 60%; 
+  margin-left: 5%; 
   margin-top: 6%;
   background-color:  rgb(255, 159, 28);
 }
@@ -119,7 +96,8 @@
   color: rgb(18, 17, 19) ;
   border: 1px solid rgb(255, 159, 28);
   border-radius: 4px;
-  margin-right: 3rem;
+  margin-right: 0em;
+
   cursor: pointer;
   font-family: helvetica;
   text-transform: uppercase;
@@ -171,7 +149,8 @@
 /* estilo searchbar */
 .searchandorder{
   display: flex;
-  background-color: rgb(255, 159, 28)
+  background-color: rgb(255, 159, 28);
+ 
 
 }
 
@@ -179,23 +158,6 @@
 
 .logo{
   margin-top: 5rem;
-}
-
-
-.top3{
-  display: flex;
- flex-direction: row; 
-  color: rgb(13, 20, 26);
-  letter-spacing: .2rem;
-  background-color:rgb(255, 160, 28);
- padding: 1rem;
-  font-size: 1.3em;
-  text-align: center;
-  letter-spacing: .5rem;
-  text-transform: uppercase;
-  height: 22rem;
-    
-
 }
 
 .titletop{
@@ -214,4 +176,68 @@
   margin-right: 3rem;
   margin-top: 0rem;
 
+}
+
+.footer{
+  margin-top: 2.1rem;
+}
+
+.buttonCreate{
+
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  transition-property: background-color,border-color,color,box-shadow,filter;
+  transition-duration: .3s;
+  border: 1px solid transparent;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  padding: 16px 14px 18px;
+  color: #616467;
+  box-shadow: inset 0 0 0 2px #616467;
+  background-color: transparent;
+  height: 48px;
+  margin-top: 3rem;
+  margin-right: 2rem;
+  margin-left: 25rem;
+}
+
+
+.buttonAll{
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  transition-property: background-color,border-color,color,box-shadow,filter;
+  transition-duration: .3s;
+  border: 1px solid transparent;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  padding: 16px 14px 18px;
+  color: #616467;
+  box-shadow: inset 0 0 0 2px #616467;
+  background-color: transparent;
+  height: 48px;
+  margin-top: 3rem;
+  margin-right: -34rem;
+  margin-left: 0rem;
+
+}
+
+.buttonCreate:hover{
+  color: #fff;
+  background-color: #616467;
 }

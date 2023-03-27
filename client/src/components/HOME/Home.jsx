@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux'; 
-import { mostRating, getVideogames, filteredVideogamesByGenres, filteredByOrigin, orderByName, orderByRating} from '../../redux/actions/actions';
+import { getVideogames, filteredVideogamesByGenres, filteredByOrigin, orderByName, orderByRating} from '../../redux/actions/actions';
 import { Link } from 'react-router-dom'
 import Card from '../CARD/Card';
 import Paginado from '../PAGINADO/Paginado';
 import SearchBar from '../SEARCHBAR/Searchbar';
 import Footer from '../FOOTER/Footer';
-import Rating from '../RATING/Rating';
+import Header from '../HEADER/Header'
 import styles from '../HOME/Home.module.css'
 
 
@@ -35,11 +35,10 @@ export default function Home()  {
     }
 
     useEffect(() => {
+        setLoading(true)
         dispatch(getVideogames());
-        
-        setLoading(false)        
-      }, [dispatch]);
-      
+        setLoading(false)
+    }, []);
 
 
     function handleClick(event){ //Handle que me muestra ALL VIDEOGAMES
@@ -86,19 +85,7 @@ export default function Home()  {
     return (
         <div className={styles.fondo}>
 
-          <div className={styles.encabezado}> 
-                
-                <Link to='/videogame'> 
-                <button className={styles.button}>Add new Videogame</button>
-                </Link>
-
-                <button className={styles.button} onClick={event => {handleClick(event)}}>All Videogames</button>
-
-                <Link to='/about'> 
-                <button className={styles.button}>about us</button>
-                </Link>
-
-            </div>
+            <Header />
 
             {/* TITULO DE LA PAGINA */}
             {/* <h1 className={styles.text}>VIDEOGAMES INDIVIDUAL PROJECT</h1> */}
@@ -111,9 +98,7 @@ export default function Home()  {
 
             
                 <div className={styles.searchandorder}> {/* RENDERIZACION SEARCH BAR */}
-                    
-                    <SearchBar   />
-           
+         
                     <div> {/* FILTROS Y ORDENAMIENTO  */} 
                             
                         <div className={styles.selectContainer}>
@@ -170,42 +155,27 @@ export default function Home()  {
 
                     </div>   
 
+                    <Link to='/home'>
+                    <button className={styles.buttonAll}>All Videogames</button>
+                    </Link>
+
+                    <Link to='/videogame'> 
+                    <button className={styles.buttonCreate}>Add new Videogame</button>
+                    </Link>
+
+                <SearchBar   />
+
                 </div>{/* div de cierre, searchandorder */}
             
 
             <div className={styles.blackbackground}>
 
-            
-
-                
-            {/* <div className={styles.titletop} > 
-           
-                
-
-                <h2>Top 3 Juegos por Rating:</h2>
-
-                <div className={styles.top3} >
-                {sortedByRating.slice(0, 3).map((game) => (
-                  <div key={game.id} className={styles.eachgamerating} >
-                    <h3>{game.name}</h3>
-                    <Link to={`/videogames/${game.id}`} target="_blank">
-                    <img src={game.image} alt={game.name} width='200px' height='200px' />
-                    </Link>
-                    <p>Rating: {game.rating}</p>
-                     
-                  </div>
-                ))}
-                </div>
-      </div> */}
-
-
+                         
             <div className={styles.tarjetas}> {/* RENDERIZADO DE LA CARD  */}
             
-            { loading? 
-            
-            <img src='/loading.gif' alt="Loading" />
-            :
-            currentVideogames?.map ((element) => {
+           
+          {  currentVideogames?.map ((element) => {
+                
                     return (
                         <Card name={element.name} image = {element.image} genres= {element.genres} key ={element.id} id = {element.id}/>
                     )
@@ -214,7 +184,7 @@ export default function Home()  {
             }
             </div>
 
-            
+           
 
 
             <div className={styles.selectorPaginas}> {/* RENDERIZACION PAGINADO */}
@@ -226,12 +196,12 @@ export default function Home()  {
                     currentPage= {currentPage}
                     setCurrentPage = {setCurrentPage}                
                     />
-            <p className={styles.page}>{'Page: '+ currentPage}</p>
+        
             </div>
 
             
 </div>
-            <div>
+            <div className={styles.footer}>
                 <Footer />
 
             </div>
