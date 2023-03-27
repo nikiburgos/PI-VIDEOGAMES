@@ -92,9 +92,9 @@ export const orderByRating = (payload) => { //ACTION QUE ORDENA VIDEOGAMES POR R
        }        
     };
 
-export const mostRating = (payload) =>{
-    return {
-        type: MOST_RATING,
-        payload
-    }
-}
+// export const mostRating = (payload) =>{
+//     return {
+//         type: MOST_RATING,
+//         payload
+//     }
+// }

@@ -108,7 +108,7 @@
     
     .input {
         padding: 10px;
-        width: 180px;
+        width: 80px;
         height: 80px;
         background: none;
         border: 4px solid #ffd52d;
@@ -127,6 +127,7 @@
         width: 350px;
         background: rgb(18, 17, 19);
         border-radius: 10px;
+        
     }
     /* .boxi{
         position: absolute;

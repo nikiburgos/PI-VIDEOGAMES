@@ -34,10 +34,9 @@ export default function SearchBar () {
                     type="text" 
                     className={styles.input} 
                     name="txt" 
-                    onmouseout="this.value = ''; this.blur();" 
                     onChange={event => handleInputChange(event)}
                     onKeyDown= {event => event.key === 'Enter' && handleSubmit(event)}
-                    placeholder= 'SEARCH'
+                    placeholder= '🔍︎'
                     />
 
                 </form>

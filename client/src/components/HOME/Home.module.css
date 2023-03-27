@@ -119,16 +119,23 @@
   color: rgb(18, 17, 19) ;
   border: 1px solid rgb(255, 159, 28);
   border-radius: 4px;
-  margin-right: 20px;
+  margin-right: 3rem;
   cursor: pointer;
   font-family: helvetica;
   text-transform: uppercase;
   background-color:  rgb(255, 159, 28);
+  outline: none;     
+  /* -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box; */
+  box-sizing: border-box;
+ -webkit-appearance: none;
+    /* -moz-appearance: none; */
     
 }
 
 .selectContainerDropdown:hover {
-  background-color:  rgb(255, 159, 28)
+  background-color:  rgb(255, 159, 28);
+  outline: none
 }
 
 .selectContainerDropdown:focus {
@@ -172,4 +179,39 @@
 
 .logo{
   margin-top: 5rem;
+}
+
+
+.top3{
+  display: flex;
+ flex-direction: row; 
+  color: rgb(13, 20, 26);
+  letter-spacing: .2rem;
+  background-color:rgb(255, 160, 28);
+ padding: 1rem;
+  font-size: 1.3em;
+  text-align: center;
+  letter-spacing: .5rem;
+  text-transform: uppercase;
+  height: 22rem;
+    
+
+}
+
+.titletop{
+ margin-top: -2%;
+  color: aliceblue;
+  text-align: center;
+  width: 60rem;
+  
+  margin-left: 20rem;
+  text-transform: uppercase;
+
+}
+
+.eachgamerating{
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 0rem;
+
 }

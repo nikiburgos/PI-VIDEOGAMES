@@ -17,6 +17,7 @@ export default function Home()  {
     const dispatch = useDispatch()
     const allVideogames = useSelector((state) => state.videogames)  //es como el mapStatetoProps
 
+  
     //PAGINADO: 
     //defino estados locales que me muestren cuántas CARDS quiero por página: mi ReadMe pide 15 cards
     const [currentPage, setCurrentPage]   = useState(1) 
@@ -35,8 +36,9 @@ export default function Home()  {
 
     useEffect(() => {
         dispatch(getVideogames());
+        
         setLoading(false)        
-      }, []);
+      }, [dispatch]);
       
 
 
@@ -90,7 +92,7 @@ export default function Home()  {
                 <button className={styles.button}>Add new Videogame</button>
                 </Link>
 
-                <Link> <button className={styles.button} onClick={event => {handleClick(event)}}>All Videogames</button> </Link>
+                <button className={styles.button} onClick={event => {handleClick(event)}}>All Videogames</button>
 
                 <Link to='/about'> 
                 <button className={styles.button}>about us</button>
@@ -108,29 +110,29 @@ export default function Home()  {
             </div>
 
             
-                <div className={styles.searchandorder}>
-                    {/* RENDERIZACION SEARCH BAR */}
+                <div className={styles.searchandorder}> {/* RENDERIZACION SEARCH BAR */}
+                    
                     <SearchBar   />
            
                     <div> {/* FILTROS Y ORDENAMIENTO  */} 
                             
                         <div className={styles.selectContainer}>
                                 <select className={styles.selectContainerDropdown} onChange={event => handleSortByName(event)}>
-                                    <option className={styles.selectContainerDropdownoption} value=''>Name</option>
+                                    <option  className={styles.selectContainerDropdownoption} value=''>Name ▼</option>
                                     <option className={styles.selectContainerDropdownoption} value='asc'>A-Z</option>
                                     <option className={styles.selectContainerDropdownoption} value='desc'>Z-A</option>
                                 </select>
 
                                
                                 <select  className={styles.selectContainerDropdown} onChange={event => handleFilteredByOrigin(event)}> {/* filtrar por origen: api o bbd  */}
-                                    <option value=''>CREATOR</option>
+                                    <option  value=''>CREATOR ▼</option>
                                     <option value='all'>All</option>
                                     <option value='database'>Created by you</option>
                                     <option value='Api'>Our DataBase</option>
                                 </select>  
 
                                 <select  className={styles.selectContainerDropdown} onChange={event => handlerByRating(event)}>  {/* filtrar por rating */}
-                                    <option value=''>RATING</option>
+                                    <option  value=''>RATING ▼</option>
                                     <option value='asc'>Ascending</option>
                                     <option value='desc'>Descending</option>
 
@@ -138,7 +140,7 @@ export default function Home()  {
                                 </select>
 
                                 <select  className={styles.selectContainerDropdown} onChange={event => handleFilteredGenre(event)}> {/* filtrar por género  */}
-                                    <option value=''>GENRE</option>
+                                    <option   value=''>GENRE ▼</option>
                                     <option value='All'>All Genres</option>
                                     <option value='Action'>Action</option>
                                     <option value='Indie'>Indie</option>
@@ -173,7 +175,32 @@ export default function Home()  {
 
             <div className={styles.blackbackground}>
 
+            
+
+                
+            {/* <div className={styles.titletop} > 
+           
+                
+
+                <h2>Top 3 Juegos por Rating:</h2>
+
+                <div className={styles.top3} >
+                {sortedByRating.slice(0, 3).map((game) => (
+                  <div key={game.id} className={styles.eachgamerating} >
+                    <h3>{game.name}</h3>
+                    <Link to={`/videogames/${game.id}`} target="_blank">
+                    <img src={game.image} alt={game.name} width='200px' height='200px' />
+                    </Link>
+                    <p>Rating: {game.rating}</p>
+                     
+                  </div>
+                ))}
+                </div>
+      </div> */}
+
+
             <div className={styles.tarjetas}> {/* RENDERIZADO DE LA CARD  */}
+            
             { loading? 
             
             <img src='/loading.gif' alt="Loading" />
@@ -195,7 +222,9 @@ export default function Home()  {
             <Paginado 
                     videogamesPerPage = {videogamesPerPage}
                     allVideogames = {allVideogames.length}
-                    paginado = {paginado}                
+                    paginado = {paginado} 
+                    currentPage= {currentPage}
+                    setCurrentPage = {setCurrentPage}                
                     />
             <p className={styles.page}>{'Page: '+ currentPage}</p>
             </div>
