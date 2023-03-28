@@ -83,142 +83,101 @@ export default function Home()  {
 
 
     return (
-        <div className={styles.fondo}>
+      <div className={styles.fondo}>
 
-            <Header />
+        <Header />
 
-            {/* TITULO DE LA PAGINA */}
-            {/* <h1 className={styles.text}>VIDEOGAMES INDIVIDUAL PROJECT</h1> */}
+        <div className={styles.logo}>
+          <Link to='/'>
+          <img src="logoPIGAMES.png" alt="" width='500px'  />
+          </Link>
+        </div>
 
-            <div className={styles.logo}>
-                <Link to='/'>
-                <img src="logoPIGAMES.png" alt="" width='500px'  />
-                </Link>
-            </div>
-
-            
-                <div className={styles.searchandorder}> {/* RENDERIZACION SEARCH BAR */}
+        <div className={styles.searchandorder}> {/* RENDERIZACION SEARCH BAR */}
          
-                    <div> {/* FILTROS Y ORDENAMIENTO  */} 
+          <div> {/* FILTROS Y ORDENAMIENTO  */} 
                             
-                        <div className={styles.selectContainer}>
-                                <select className={styles.selectContainerDropdown} onChange={event => handleSortByName(event)}>
-                                    <option  className={styles.selectContainerDropdownoption} value=''>Name ▼</option>
-                                    <option className={styles.selectContainerDropdownoption} value='asc'>A-Z</option>
-                                    <option className={styles.selectContainerDropdownoption} value='desc'>Z-A</option>
-                                </select>
+             <div className={styles.selectContainer}>
+              <select className={styles.selectContainerDropdown} onChange={event => handleSortByName(event)}>
+                <option  className={styles.selectContainerDropdownoption} value=''>Name ▼</option>
+                <option className={styles.selectContainerDropdownoption} value='asc'>A-Z</option>
+                <option className={styles.selectContainerDropdownoption} value='desc'>Z-A</option>
+              </select>
 
                                
-                                <select  className={styles.selectContainerDropdown} onChange={event => handleFilteredByOrigin(event)}> {/* filtrar por origen: api o bbd  */}
-                                    <option  value=''>CREATOR ▼</option>
-                                    <option value='all'>All</option>
-                                    <option value='database'>Created by you</option>
-                                    <option value='Api'>Our DataBase</option>
-                                </select>  
+              <select  className={styles.selectContainerDropdown} onChange={event => handleFilteredByOrigin(event)}> {/* filtrar por origen: api o bbd  */}
+								<option  value=''>CREATOR ▼</option>
+								<option value='all'>All</option>
+								<option value='database'>Created by you</option>
+								<option value='Api'>Our DataBase</option>
+              </select>  
 
-                                <select  className={styles.selectContainerDropdown} onChange={event => handlerByRating(event)}>  {/* filtrar por rating */}
-                                    <option  value=''>RATING ▼</option>
-                                    <option value='asc'>lower</option>
-                                    <option value='desc'>Higher</option>
+          		<select  className={styles.selectContainerDropdown} onChange={event => handlerByRating(event)}>  {/* filtrar por rating */}
+              	<option  value=''>RATING ▼</option>
+              	<option value='asc'>lower</option>
+              	<option value='desc'>Higher</option>
+          		</select>
 
-
-                                </select>
-
-                                <select  className={styles.selectContainerDropdown} onChange={event => handleFilteredGenre(event)}> {/* filtrar por género  */}
-                                    <option   value=''>GENRE ▼</option>
-                                    <option value='All'>All Genres</option>
-                                    <option value='Action'>Action</option>
-                                    <option value='Indie'>Indie</option>
-                                    <option value='Adventure'>Adventure</option>
-                                    <option value='RPG'>RPG</option>
-                                    <option value='Strategy'>Strategy</option>
-                                    <option value='Shooter'>Shooter</option>
-                                    <option value='Casual'>Casual</option>
-                                    <option value='Simulation'>Simulation</option>
-                                    <option value='Puzzle'>Puzzle</option>
-                                    <option value='Arcade'>Arcade</option>
-                                    <option value='Platformer'>Platformer</option>
-                                    <option value='Racing'>Racing</option>
-                                    <option value='Massively Multiplayer'>Massively Multiplayer</option>
-                                    <option value='Sports'>Sports</option>
-                                    <option value='Fighting'>Fighting</option>
-                                    <option value='Family'>Family</option>
-                                    <option value='Board Games'>Board Games</option>
-                                    <option value='Educational'>Educational</option>
-                                    <option value='Card'>Card</option>                    
-                                </select>
-
-                                        
-
-
-                        </div>
-
-                    </div>   
-
-
-
-
-
-
+          		<select  className={styles.selectContainerDropdown} onChange={event => handleFilteredGenre(event)}> {/* filtrar por género  */}
+              	<option   value=''>GENRE ▼</option>
+              	<option value='All'>All Genres</option>
+              	<option value='Action'>Action</option>
+              	<option value='Indie'>Indie</option>
+              	<option value='Adventure'>Adventure</option>
+              	<option value='RPG'>RPG</option>
+              	<option value='Strategy'>Strategy</option>
+              	<option value='Shooter'>Shooter</option>
+              	<option value='Casual'>Casual</option>
+              	<option value='Simulation'>Simulation</option>
+              	<option value='Puzzle'>Puzzle</option>
+              	<option value='Arcade'>Arcade</option>
+              	<option value='Platformer'>Platformer</option>
+              	<option value='Racing'>Racing</option>
+              	<option value='Massively Multiplayer'>Massively Multiplayer</option>
+              	<option value='Sports'>Sports</option>
+              	<option value='Fighting'>Fighting</option>
+              	<option value='Family'>Family</option>
+              	<option value='Board Games'>Board Games</option>
+              	<option value='Educational'>Educational</option>
+              	<option value='Card'>Card</option>                    
+          		</select>                           
+  					 </div>
+					</div>   
                     <Link to='/videogame'> 
                     <button className={styles.buttonCreate}>Add new Videogame</button>
                     </Link>
-
-                   
+                  
                     <button className={styles.buttonAll} onClick={event => handleClick(event)}>All Videogames</button>
-                    
-
+                 
                     <SearchBar   />
 
+        </div>       
 
-
-
-
-
-
-
-
-                </div>{/* div de cierre, searchandorder */}
-            
-
-            <div className={styles.blackbackground}>
-
-                         
-            <div className={styles.tarjetas}> {/* RENDERIZADO DE LA CARD  */}
-            
-           
-          {  currentVideogames?.map ((element) => {
-                
+        <div className={styles.blackbackground}>                         
+          <div className={styles.tarjetas}> {/* RENDERIZADO DE LA CARD  */}         
+          	{  
+					currentVideogames?.map ((element) => {
                     return (
                         <Card name={element.name} image = {element.image} genres= {element.genres} key ={element.id} id = {element.id}/>
-                    )
-                
+                    )                
                 })            
             }
-            </div>
+          </div>
 
-           
-
-
-            <div className={styles.selectorPaginas}> {/* RENDERIZACION PAGINADO */}
-            
+          <div className={styles.selectorPaginas}> {/* RENDERIZACION PAGINADO */}            
             <Paginado 
-                    videogamesPerPage = {videogamesPerPage}
-                    allVideogames = {allVideogames.length}
-                    paginado = {paginado} 
-                    currentPage= {currentPage}
-                    setCurrentPage = {setCurrentPage}                
-                    />
-        
-            </div>
-
-            
-</div>
-            <div className={styles.footer}>
-                <Footer />
-
-            </div>
+              videogamesPerPage = {videogamesPerPage}
+              allVideogames = {allVideogames.length}
+              paginado = {paginado} 
+              currentPage= {currentPage}
+              setCurrentPage = {setCurrentPage}                
+            />        
+          </div>
+				</div>
+        <div className={styles.footer}>
+          <Footer />
 
         </div>
-    )
-}
+
+      </div>
+    )};
