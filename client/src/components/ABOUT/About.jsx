@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./About.module.css"
 import imagen from "../../recursos/imagesAbout";
+import Footer from '../FOOTER/Footer'
 
 
 
@@ -28,13 +29,26 @@ export default function About(){
                     
                         <div className={styles.logos}>
                           
-                          <img src={imagen.imgExpress} alt="Express Logo" className={styles.img} />
-                          <img src={imagen.imgjs} alt="JavaScript Logo" className={styles.img} />
-                          <img src={imagen.imgNode} alt="Node JS Logo" className={styles.img}/>
-                          <img src={imagen.imgPosgress} alt="Postgres Logo" className={styles.img}/>
-                          <img src={imagen.imgReact} alt="React Logo" className={styles.img}/>
-                          <img src={imagen.imgRedux} alt="Redux Logo" className={styles.img}/>
-                          <img src={imagen.imgCss} alt="Css Logo" className={styles.img}/>
+                          <a href="http://expressjs.com/" target='_blank'>
+                          <img src={imagen.imgExpress} alt="Express Logo" className={styles.img} /> </a>
+                          
+                          <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target='_blank'>
+                          <img src={imagen.imgjs} alt="JavaScript Logo" className={styles.img} /> </a>
+                         
+                          <a href="https://nodejs.org/en" target='_blank'>
+                          <img src={imagen.imgNode} alt="Node JS Logo" className={styles.img}/></a>
+                          
+                          <a href="https://www.postgresql.org/" target='_blank'>
+                          <img src={imagen.imgPosgress} alt="Postgres Logo" className={styles.img}/></a>
+                          
+                          <a href="https://es.reactjs.org/" target='_blank'>
+                          <img src={imagen.imgReact} alt="React Logo" className={styles.img}/></a>
+                          
+                          <a href="https://redux.js.org/" target='_blank'>
+                          <img src={imagen.imgRedux} alt="Redux Logo" className={styles.img}/></a>
+                          
+                          <a href="https://developer.mozilla.org/es/docs/Web/CSS" target='_blank'>
+                          <img src={imagen.imgCss} alt="Css Logo" className={styles.img}/> </a>
 
                             
                         </div>
@@ -59,7 +73,11 @@ export default function About(){
             </div>
 
 
-        {/* footer */}
+
+
+         < Footer />
+
+        
 
         </div>
     );

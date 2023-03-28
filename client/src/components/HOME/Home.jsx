@@ -118,8 +118,8 @@ export default function Home()  {
 
                                 <select  className={styles.selectContainerDropdown} onChange={event => handlerByRating(event)}>  {/* filtrar por rating */}
                                     <option  value=''>RATING ▼</option>
-                                    <option value='asc'>Ascending</option>
-                                    <option value='desc'>Descending</option>
+                                    <option value='asc'>lower</option>
+                                    <option value='desc'>Higher</option>
 
 
                                 </select>
@@ -164,9 +164,9 @@ export default function Home()  {
                     <button className={styles.buttonCreate}>Add new Videogame</button>
                     </Link>
 
-                    <Link to='/home'>
-                    <button className={styles.buttonAll}>All Videogames</button>
-                    </Link>
+                   
+                    <button className={styles.buttonAll} onClick={event => handleClick(event)}>All Videogames</button>
+                    
 
                     <SearchBar   />
 
