@@ -16,7 +16,7 @@ const getApiInfo = async function() {
         gamesData.push(axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${i}`));
     }
 
-    return Promise.all(gamesData)
+    return Promise.all(gamesData) 
         .then((response) => {
 
             let pages = [];
@@ -44,6 +44,23 @@ const getApiInfo = async function() {
         })
 }
 
+// const getApiInfo = async () => {
+//     const getApi = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`)
+//     const mapData = await getApi.data.map(v => {
+//         return {
+//             id: v.id,
+//                         name: v.name,
+//                         image: v.background_image,
+//                         rating: v.rating.toFixed(2), //para tener solo 2 decimales
+//                         genres: v.genres?.map(g => g.name),
+//                         platforms: v.platforms?.map(p=>p.platform.name),
+//                         released: v.released
+//              }
+//     });
+//     return mapData;
+// }
+
+
 
 
 // ------------------------Para traer todos los videojuegos de DB ----------------------------------
@@ -60,8 +77,8 @@ const getDbInfo = async function() {
         }
     });
 
-    dbInfo = JSON.parse(JSON.stringify(dbInfo));
-    dbInfoModif = dbInfo.reverse();
+    dbInfo = JSON.parse(JSON.stringify(dbInfo)); //sttingify para pasarlo a JSON, y despues parse para JSON ->para tener una copia del objeto y poder manipula rla info.
+    dbInfoModif = dbInfo.reverse(); //para obtener los videojuegos mas recientes al principio
 
     return dbInfoModif.map(videogame => {
         videogame.genres = videogame.genres.map(g => g.name);
@@ -78,10 +95,6 @@ const getAllVideogames = async function() {
     const infoTotal = dbInfo.concat(apiInfo);
     return infoTotal;
 }
-
-
-
-
 
 //Para traer los 15 primeros videojuegos que coincidan con el nombre pasado -----------------------
 

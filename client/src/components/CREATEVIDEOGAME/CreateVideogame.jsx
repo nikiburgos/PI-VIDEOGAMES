@@ -106,7 +106,8 @@ export default function CreateVideogame(){
       
 
     function handleSelect(event){
-        setInput({
+      if (!input.genres.includes(event.target.value))    
+        setInput({          
             ...input,
             genres: [...input.genres, event.target.value]
         })

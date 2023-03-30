@@ -28,16 +28,12 @@ export default function Home()  {
     
     const currentVideogames = allVideogames.slice(indexOfFirstVideogame, indexOfLastVideogame) //slice agarra un arreglo y me toma la porción que yo quiero: el indice del primer videogame y el del ultimo. 
 
-    const[loading, setLoading] = useState(true);
-
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
 
-    useEffect(() => {
-        setLoading(true)
-        dispatch(getVideogames());
-        setLoading(false)
+    useEffect(() => {  
+        dispatch(getVideogames());    
     }, []);
 
 
@@ -52,6 +48,7 @@ export default function Home()  {
     
     function handleFilteredByOrigin(event){ //Handle del filtrado by ORIGIN
         dispatch(filteredByOrigin(event.target.value))
+        setCurrentPage(1)
     }
 
     const [orden, setOrden] = useState('')
@@ -60,28 +57,23 @@ export default function Home()  {
         dispatch(orderByName(event.target.value))
         setCurrentPage(1); //necesito setear la página en la primera
         setOrden(`Order ${event.target.value}`) 
-        //esto lo necesito para poder hacer el ordenamiento, un estado que setee mi cambio. Mi estado local arranca vacío y cuando lo cambio lo seteo de esta forma. 
     }
 
     const [ratingchange, setRatingchange] = useState('');
     function handlerByRating(e) {             //handleByRating
         dispatch(orderByRating(e.target.value));
-        setCurrentPage(1);   
+        setCurrentPage(1);   // para q el usuario sea redirigido a la pagina 1 
                           
         setRatingchange(e.target.value); 
         setOrden("Order" + e.target.value); 
     }
 
-
-    const [sortedByRating, setSortedByRating] = useState([]);
-    useEffect(() => {
-        const sortedVideogames = allVideogames.slice().sort((a, b) => b.rating - a.rating);
-        setSortedByRating(sortedVideogames);
-      }, [allVideogames]);
+    // const [sortedByRating, setSortedByRating] = useState([]);
+    // useEffect(() => {
+    //     const sortedVideogames = allVideogames.slice().sort((a, b) => b.rating - a.rating); //sliceeee para no modificar el array!
+    //     setSortedByRating(sortedVideogames);
+    //   }, [allVideogames]);
       
-
-
-
     return (
       <div className={styles.fondo}>
 
@@ -149,7 +141,8 @@ export default function Home()  {
                   
                     <button className={styles.buttonAll} onClick={event => handleClick(event)}>All Videogames</button>
                  
-                    <SearchBar   />
+                    <SearchBar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+
 
         </div>       
 

@@ -5,8 +5,8 @@
  const { getAllVideogamesById } = require ('../controllers/getVideogameById')
 
 
-router.get('/videogames/:id', async (req, res) => {
-    const { id } = req.params;
+router.get('/videogames/', async (req, res) => {
+    const { id } = req.query;
     const videogameId = await getAllVideogamesById(id);
        
    if (id) {

@@ -6,7 +6,7 @@ import styles from '../SEARCHBAR/Searchbar.module.css'
 // import lupa from '../../recursos/imagesAbout'
 
 
-export default function SearchBar () {
+export default function SearchBar ({currentPage, setCurrentPage}) {
     const dispatch = useDispatch();
     const [name, setName] = useState ('')
 
@@ -14,6 +14,7 @@ export default function SearchBar () {
     function handleInputChange (event){
         event.preventDefault()
         setName(event.target.value)
+        setCurrentPage(1)
         
     }
 

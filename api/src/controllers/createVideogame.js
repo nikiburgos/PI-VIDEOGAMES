@@ -17,13 +17,13 @@ const createVideogame = async (
     const responseDb = await Videogame.findAll({
       where: {
         name: {
-          [Op.iLike]: `%${name}%`, //esto buscar bien porque no entendí para qué ponerlo así!!! 
+          [Op.iLike]: `%${name}%`, 
         },
       },
     });
 
     if (responseDb.length) {
-      return 'There is already a videogame with this name'; //fijarse si esto vuelve, porq no comprobé
+      return 'There is already a videogame with this name'; 
     }
 
     // Verifica que la tabla de géneros esté cargada, sino la crea:
