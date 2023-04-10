@@ -26,6 +26,9 @@ module.exports = router;
 
 
 
+
+
+
 // router.post('/videogames', async (req, res) => {
 //     const { name, description, released, rating, platforms, image, genres, createdInDb } = req.body;
 

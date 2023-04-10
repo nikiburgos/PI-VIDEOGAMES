@@ -11,6 +11,7 @@ const getApiInfoById = async function(id) {
         const urlData = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
         const gamesData = {
             id: urlData.data.id,
+            
             name: urlData.data.name,
             description: urlData.data.description_raw,
             image: urlData.data.background_image,
@@ -18,6 +19,7 @@ const getApiInfoById = async function(id) {
             rating: urlData.data.rating,
             platforms: urlData.data.platforms.map(p => p.platform.name).join(', '),
             genres: urlData.data.genres.map(g => g.name).join(', ')
+            
         }
 
         return gamesData;
@@ -25,6 +27,7 @@ const getApiInfoById = async function(id) {
     } catch(error) {
         return null;
     }
+    
 }
 
 

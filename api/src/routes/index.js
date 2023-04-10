@@ -5,7 +5,9 @@ const { Router } = require('express');
 const genresRoute = require('./getGenres');
 const createVideoGameRoute = require('./routeCreateVideogame')
 const videogamesRoute = require ('./getVideogames')
-const videogameByIdRoute  = require ('./findVideogameById') // --> arreglar esto 
+// const videogameByIdRoute  = require ('./findVideogameById') // --> arreglar esto 
+const videogameByIdRoute = require ('./findVideogameById')
+const deleteVideogame = require ('./deleteVideogame')
 
 const router = Router();
 
@@ -16,6 +18,10 @@ router.get('/videogames/:id', videogameByIdRoute);  // ---> FUNCIONAAAAAAAAAA --
 
 // POST
 router.post('/videogames', createVideoGameRoute); // --> ESTA FUNCIONA !!! HACE EL POST 
+
+//DELETE
+router.delete('/videogames/:id', deleteVideogame)
+
 
 module.exports = router;
 

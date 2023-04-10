@@ -1,12 +1,11 @@
  const { Router } = require ('express');
-//const { getAllVideogamesById, getApiInfoById } = require ('../controllers/getVideogameById');
- //const { getAllVideogames, getDbInfo, getAll } = require ('../controllers/getAllVideogames');
  const router = Router(); 
  const { getAllVideogamesById } = require ('../controllers/getVideogameById')
 
 
-router.get('/videogames/', async (req, res) => {
-    const { id } = req.query;
+router.get('/videogames/:id', async (req, res) => {
+    const { id } = req.params;
+    console.log(id)
     const videogameId = await getAllVideogamesById(id);
        
    if (id) {
@@ -16,3 +15,4 @@ router.get('/videogames/', async (req, res) => {
 
 
 module.exports = router;
+
