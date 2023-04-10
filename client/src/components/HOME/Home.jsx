@@ -68,11 +68,11 @@ export default function Home()  {
         setOrden("Order" + e.target.value); 
     }
 
-    // const [sortedByRating, setSortedByRating] = useState([]);
-    // useEffect(() => {
-    //     const sortedVideogames = allVideogames.slice().sort((a, b) => b.rating - a.rating); //sliceeee para no modificar el array!
-    //     setSortedByRating(sortedVideogames);
-    //   }, [allVideogames]);
+    const [sortedByRating, setSortedByRating] = useState([]);
+    useEffect(() => {
+        const sortedVideogames = allVideogames.slice().sort((a, b) => b.rating - a.rating); //sliceeee para no modificar el array!
+        setSortedByRating(sortedVideogames);
+      }, [allVideogames]);
       
     return (
       <div className={styles.fondo}>

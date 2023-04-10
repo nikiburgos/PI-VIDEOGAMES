@@ -1,6 +1,6 @@
 import axios from 'axios'; 
 
-import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME, GET_VIDEOGAME_BY_NAME, GET_GENRES, GET_DETAIL, ORDER_BY_RATING, MOST_RATING } from '../actions/action-types'
+import { GET_VIDEOGAMES, FILTERED_BY_GENRES, FILTERED_BY_ORIGIN, ORDER_BY_NAME, GET_VIDEOGAME_BY_NAME, GET_GENRES, GET_DETAIL, ORDER_BY_RATING, MOST_RATING, DELETE_VIDEOGAME,  } from '../actions/action-types'
 
 
 
@@ -114,3 +114,21 @@ export const orderByRating = (payload) => { //ACTION QUE ORDENA VIDEOGAMES POR R
 //         payload
 //     }
 // }
+
+
+export const deleteVideogame = (id) => async (dispatch) =>{
+    try {
+      if (!id) {
+        throw new Error("Invalid ID");
+      }
+      const response = await axios.delete(`http://localhost:3001/videogames/${id}`);
+    console.log(response.data);
+    dispatch({
+      type: DELETE_VIDEOGAME,
+      payload: response.data
+  });
+  return response;
+  } catch (error) {
+    console.error(error);
+  }
+};
