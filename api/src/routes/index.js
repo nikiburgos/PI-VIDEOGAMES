@@ -8,6 +8,7 @@ const videogamesRoute = require ('./getVideogames')
 // const videogameByIdRoute  = require ('./findVideogameById') // --> arreglar esto 
 const videogameByIdRoute = require ('./findVideogameById')
 const deleteVideogame = require ('./deleteVideogame')
+const editVideogame = require ('./updateVideogame')
 
 const router = Router();
 
@@ -21,6 +22,8 @@ router.post('/videogames', createVideoGameRoute); // --> ESTA FUNCIONA !!! HACE 
 
 //DELETE
 router.delete('/videogames/:id', deleteVideogame)
+
+router.put('/update/:id', editVideogame)
 
 
 module.exports = router;
